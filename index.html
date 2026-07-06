@@ -1,0 +1,1174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Full Stack Developer and Prompt Engineer specializing in modern web applications, AI integration, and UI/UX design. Explore Harsh Pandya's projects, skills, and professional experience." />
+  <meta name="keywords"
+    content="Full Stack, Prompt Engineer, AI, Machine Learning, Web Development, JavaScript, Python, React, Node.js, Bootstrap, UI/UX, Android, Java, PHP, Data Science" />
+  <title>Harsh Pandya | Full Stack Developer | Prompt Engineer | AI Developer</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet" />
+
+  <!-- Bootstrap 5 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" />
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <!-- AOS Animation Library -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- Particles Canvas -->
+  <canvas id="particleCanvas"></canvas>
+
+  <!-- Custom Cursor -->
+  <div class="cursor-dot" id="cursorDot"></div>
+  <div class="cursor-outline" id="cursorOutline"></div>
+
+  <!-- Preloader -->
+  <div id="preloader">
+    <div class="preloader-inner">
+      <div class="preloader-logo">H</div>
+      <div class="preloader-text">Loading Portfolio...</div>
+      <div class="preloader-bar">
+        <div class="preloader-fill"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== NAVBAR ===== -->
+  <nav class="navbar navbar-expand-lg fixed-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand" href="#home" id="nav-logo">
+        <span class="logo-bracket">&lt;</span>Harsh<span class="logo-bracket">/&gt;</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" id="navToggler">
+        <span class="toggler-icon"></span>
+        <span class="toggler-icon"></span>
+        <span class="toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="#home" id="nav-home">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#about" id="nav-about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#skills" id="nav-skills">Skills</a></li>
+          <li class="nav-item"><a class="nav-link" href="#projects" id="nav-projects">Projects</a></li>
+          <li class="nav-item"><a class="nav-link" href="#experience" id="nav-experience">Experience</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact" id="nav-contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ===== HERO SECTION ===== -->
+  <section class="hero-section" id="home">
+    <div class="hero-bg-img"></div>
+    <div class="hero-overlay"></div>
+    <div class="container hero-content">
+      <div class="row align-items-center min-vh-100">
+        <div class="col-lg-7" data-aos="fade-right" data-aos-duration="1000">
+          <br><br>
+          <div class="hero-greeting">👋 Hello, World!</div>
+          <h1 class="hero-title">
+            I'm <span class="gradient-text">Harsh</span>
+          </h1>
+          <div class="hero-subtitle-wrapper">
+            <span class="hero-subtitle-static">I'm a </span>
+            <span class="hero-typed" id="typedText"></span>
+            <span class="typed-cursor">|</span>
+          </div>
+          <p class="hero-description">
+            I build modern web applications, AI-powered software, automation systems, and commercial AI content. My
+            expertise includes Full Stack Development, Prompt Engineering, AI Integration, UI/UX Design, and intelligent
+            digital solutions. I enjoy transforming ideas into scalable products through clean code and creative
+            problem-solving.
+          </p>
+          <div class="hero-cta">
+            <a href="#projects" class="btn btn-primary-glow" id="hero-projects-btn">
+              <span>View My Work</span>
+              <i class="fas fa-arrow-right ms-2"></i>
+            </a>
+            <a href="#contact" class="btn btn-outline-glow" id="hero-contact-btn">
+              <span>Let's Talk</span>
+            </a>
+          </div>
+          <div class="hero-stats">
+            <div class="stat-item">
+              <span class="stat-number" data-count="10">0</span><span class="stat-suffix">+</span>
+              <span class="stat-label">Projects</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-item">
+              <span class="stat-number" data-count="5">0</span>
+              <span class="stat-label">Months Internship</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-item">
+              <span class="stat-number" data-count="15">0</span><span class="stat-suffix">+</span>
+              <span class="stat-label">Technologies</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-item">
+              <span class="stat-number" data-count="1">0</span>
+              <span class="stat-label">Professional AI Role</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-5 d-none d-lg-flex justify-content-center" data-aos="fade-left" data-aos-duration="1000">
+          <div class="hero-avatar-wrapper">
+            <div class="avatar-ring ring-1"></div>
+            <div class="avatar-ring ring-2"></div>
+            <div class="avatar-ring ring-3"></div>
+            <div class="hero-avatar">
+              <div class="avatar-letter">H</div>
+            </div>
+            <!-- Floating tech badges -->
+            <div class="float-badge badge-html">HTML5</div>
+            <div class="float-badge badge-css">CSS3</div>
+            <div class="float-badge badge-js">JS</div>
+            <div class="float-badge badge-py">Python</div>
+            <div class="float-badge badge-bs">Bootstrap</div>
+            <div class="float-badge badge-jq">jQuery</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="scroll-indicator">
+      <div class="scroll-mouse">
+        <div class="scroll-wheel"></div>
+      </div>
+      <span>Scroll Down</span>
+    </div>
+  </section>
+
+  <!-- ===== ABOUT SECTION ===== -->
+  <section class="section-padding" id="about">
+    <div class="container">
+      <div class="section-header text-center" data-aos="fade-up">
+        <span class="section-tag">Get To Know Me</span>
+        <h2 class="section-title">About <span class="gradient-text">Me</span></h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="row align-items-center g-5 mt-3">
+        <div class="col-lg-5" data-aos="fade-right" data-aos-delay="100">
+          <div class="about-card-wrapper">
+            <div class="about-card glass-card">
+              <div class="about-avatar-big">
+                <div class="avatar-bg-glow"></div>
+                <div class="big-avatar-letter">H</div>
+              </div>
+              <div class="about-info-chips">
+                <div class="info-chip">
+                  <i class="fas fa-user-graduate"></i>
+                  MSc IT Student
+                </div>
+                <div class="info-chip">
+                  <i class="fas fa-graduation-cap"></i>
+                  BCA Graduate
+                </div>
+                <div class="info-chip">
+                  <i class="fas fa-map-marker-alt"></i>
+                  Ahmedabad, Gujarat
+                </div>
+                <div class="info-chip">
+                  <i class="fas fa-robot"></i>
+                  Prompt Engineer
+                </div>
+                <div class="info-chip">
+                  <i class="fas fa-code"></i>
+                  Full Stack Developer
+                </div>
+                <div class="info-chip">
+                  <i class="fas fa-briefcase"></i>
+                  Open for Freelance
+                </div>
+              </div>
+              <a href="resume/Harsh_Pandya_CV.pdf" download class="btn btn-download-cv" id="download-cv-btn">
+                <i class="fas fa-download me-2"></i> Download CV
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-7" data-aos="fade-left" data-aos-delay="200">
+          <div class="about-text-content">
+            <h3 class="about-heading">Full Stack Developer &<span class="gradient-text"> AI Innovator</span></h3>
+            <p class="about-desc">
+              I'm a Full Stack Developer, Prompt Engineer, and MSc IT student passionate about building intelligent
+              digital products that combine modern web technologies with artificial intelligence. I completed my
+              Bachelor of Computer Applications (BCA) from Ganpat University and am currently pursuing my Master's
+              in Information Technology at Silver Oak University.
+            </p>
+
+            <p class="about-desc">
+              Professionally, I work as a Prompt Engineer specializing in AI-powered image and video generation while
+              also gaining hands-on experience as a Full Stack Developer through my internship at Upeya Electronics.
+              I've worked on client projects involving AI automation, commercial advertisements, responsive websites,
+              and modern web applications.
+            </p>
+
+            <p class="about-desc">
+              I enjoy solving real-world problems through technology, whether it's developing AI-powered fitness
+              platforms, autonomous delivery systems, interactive websites, or commercial AI content. My goal is to
+              create scalable, user-friendly solutions that deliver both innovation and business value.
+            </p>
+            <div class="about-highlights">
+              <div class="highlight-item">
+                <i class="fas fa-check-circle"></i>
+                <span>Full-Stack Web Development</span>
+              </div>
+              <div class="highlight-item">
+                <i class="fas fa-check-circle"></i>
+                <span>UI/UX Design &amp; Prototyping</span>
+              </div>
+              <div class="highlight-item">
+                <i class="fas fa-check-circle"></i>
+                <span>Prompt Engineering &amp; AI Integration</span>
+              </div>
+              <div class="highlight-item">
+                <i class="fas fa-check-circle"></i>
+                <span>Responsive &amp; Mobile-First Design</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SKILLS SECTION ===== -->
+  <section class="section-padding skills-bg" id="skills">
+    <div class="container">
+      <div class="section-header text-center" data-aos="fade-up">
+        <span class="section-tag">What I Know</span>
+        <h2 class="section-title">My <span class="gradient-text">Skills</span></h2>
+        <div class="section-line"></div>
+      </div>
+
+      <div class="row g-4 mt-4">
+        <!-- Frontend -->
+        <div class="col-lg-4 col-md-6 col-12" data-aos="fade-up" data-aos-delay="100">
+          <div class="skill-category-card glass-card">
+            <div class="skill-cat-icon"><i class="fas fa-code"></i></div>
+            <h4 class="skill-cat-title">Frontend</h4>
+            <div class="skill-items">
+              <div class="skill-item">
+                <div class="skill-info"><span>HTML5</span><span>95%</span></div>
+                <div class="skill-bar"><div class="skill-fill" data-width="95" style="width:0%"></div></div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-info"><span>CSS3</span><span>92%</span></div>
+                <div class="skill-bar"><div class="skill-fill" data-width="92" style="width:0%"></div></div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-info"><span>JavaScript</span><span>88%</span></div>
+                <div class="skill-bar"><div class="skill-fill" data-width="88" style="width:0%"></div></div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-info"><span>Bootstrap</span><span>90%</span></div>
+                <div class="skill-bar"><div class="skill-fill" data-width="90" style="width:0%"></div></div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-info"><span>React.js</span><span>70%</span></div>
+                <div class="skill-bar"><div class="skill-fill" data-width="70" style="width:0%"></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Backend / DB -->
+        <div class="col-lg-4 col-md-6 col-12" data-aos="fade-up" data-aos-delay="200">
+          <div class="skill-category-card glass-card">
+            <div class="skill-cat-icon"><i class="fas fa-server"></i></div>
+            <h4 class="skill-cat-title">Backend &amp; DB</h4>
+            <div class="skill-items">
+              <div class="skill-item">
+                <div class="skill-info"><span>Python</span><span>85%</span></div>
+                <div class="skill-bar"><div class="skill-fill" data-width="85" style="width:0%"></div></div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-info"><span>PHP</span><span>80%</span></div>
+                <div class="skill-bar"><div class="skill-fill" data-width="80" style="width:0%"></div></div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-info"><span>Flask</span><span>82%</span></div>
+                <div class="skill-bar"><div class="skill-fill" data-width="82" style="width:0%"></div></div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-info"><span>MySQL</span><span>82%</span></div>
+                <div class="skill-bar"><div class="skill-fill" data-width="82" style="width:0%"></div></div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-info"><span>REST APIs</span><span>80%</span></div>
+                <div class="skill-bar"><div class="skill-fill" data-width="80" style="width:0%"></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Design / Tools -->
+        <div class="col-lg-4 col-md-12 col-12" data-aos="fade-up" data-aos-delay="300">
+          <div class="skill-category-card glass-card">
+            <div class="skill-cat-icon"><i class="fas fa-paint-brush"></i></div>
+            <h4 class="skill-cat-title">Design &amp; Tools</h4>
+            <div class="skill-items">
+              <div class="skill-item">
+                <div class="skill-info"><span>Git &amp; GitHub</span><span>88%</span></div>
+                <div class="skill-bar"><div class="skill-fill" data-width="88" style="width:0%"></div></div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-info"><span>Prompt Engineering</span><span>90%</span></div>
+                <div class="skill-bar"><div class="skill-fill" data-width="90" style="width:0%"></div></div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-info"><span>AI Tools</span><span>88%</span></div>
+                <div class="skill-bar"><div class="skill-fill" data-width="88" style="width:0%"></div></div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-info"><span>Figma</span><span>75%</span></div>
+                <div class="skill-bar"><div class="skill-fill" data-width="75" style="width:0%"></div></div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-info"><span>Canva</span><span>85%</span></div>
+                <div class="skill-bar"><div class="skill-fill" data-width="85" style="width:0%"></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tech Stack Icons -->
+      <div class="tech-stack-row mt-5" data-aos="fade-up" data-aos-delay="100">
+        <h4 class="tech-stack-title text-center mb-4">Tech Stack</h4>
+        <div class="tech-icons-grid">
+          <div class="tech-icon-item"><i class="fab fa-html5"></i><span>HTML5</span></div>
+          <div class="tech-icon-item"><i class="fab fa-css3-alt"></i><span>CSS3</span></div>
+          <div class="tech-icon-item"><i class="fab fa-js-square"></i><span>JavaScript</span></div>
+          <div class="tech-icon-item"><i class="fab fa-bootstrap"></i><span>Bootstrap</span></div>
+          <div class="tech-icon-item"><i class="fab fa-react"></i><span>React</span></div>
+          <div class="tech-icon-item"><i class="fab fa-python"></i><span>Python</span></div>
+          <div class="tech-icon-item"><i class="fab fa-php"></i><span>PHP</span></div>
+          <div class="tech-icon-item"><i class="fas fa-fire"></i><span>Flask</span></div>
+          <div class="tech-icon-item"><i class="fas fa-database"></i><span>MySQL</span></div>
+          <div class="tech-icon-item"><i class="fab fa-github"></i><span>GitHub</span></div>
+          <div class="tech-icon-item"><i class="fab fa-git-alt"></i><span>Git</span></div>
+          <div class="tech-icon-item"><i class="fas fa-robot"></i><span>AI</span></div>
+          <div class="tech-icon-item"><i class="fas fa-brain"></i><span>Prompt Eng.</span></div>
+          <div class="tech-icon-item"><i class="fas fa-cloud"></i><span>REST APIs</span></div>
+          <div class="tech-icon-item"><i class="fas fa-palette"></i><span>Figma</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PROJECTS SECTION ===== -->
+  <section class="section-padding" id="projects">
+    <div class="container">
+      <div class="section-header text-center" data-aos="fade-up">
+        <span class="section-tag">What I've Built</span>
+        <h2 class="section-title">My <span class="gradient-text">Projects</span></h2>
+        <div class="section-line"></div>
+      </div>
+
+      <!-- Filter Buttons -->
+      <div class="project-filters text-center mt-4 mb-5" data-aos="fade-up" data-aos-delay="100">
+        <button class="filter-btn active" data-filter="all" id="filter-all">All</button>
+        <button class="filter-btn" data-filter="web" id="filter-web">Web App</button>
+        <button class="filter-btn" data-filter="ai" id="filter-ai">AI / ML</button>
+        <button class="filter-btn" data-filter="client" id="filter-client">Client Work</button>
+        <button class="filter-btn" data-filter="ecommerce" id="filter-ecommerce">E-Commerce</button>
+      </div>
+
+      <div class="row g-4" id="projectsGrid">
+
+        <!-- GoalFit AI Pro -->
+        <div class="col-lg-4 col-md-6 col-12 project-item" data-category="ai" data-aos="fade-up">
+          <div class="project-card glass-card featured-project">
+            <div class="project-img-wrapper">
+              <div class="project-img elearn-placeholder">
+                <div class="elearn-visual">
+                  <i class="fas fa-dumbbell elearn-icon"></i>
+                  <span>GoalFit AI Pro</span>
+                </div>
+              </div>
+              <div class="project-tag ai-tag">AI Platform</div>
+              <div class="featured-badge">⭐ Flagship</div>
+            </div>
+            <div class="project-card-body">
+              <h4 class="project-title">GoalFit AI Pro</h4>
+              <div class="mb-2">
+                <span class="badge bg-warning text-dark">🚧 In Development</span>
+              </div>
+              <p class="text-muted mb-2" style="font-size:0.82rem;">2026 • Major MSc IT Project</p>
+              <p class="project-desc">
+                A next-generation AI-powered fitness platform that provides intelligent workout recommendations, smart
+                diet planning, BMI analysis, progress tracking, premium memberships, coach &amp; dietitian hiring, and
+                personalized fitness insights.
+              </p>
+              <p class="project-role"><strong>Role:</strong> Full Stack Developer &amp; AI Application Developer</p>
+              <div class="project-tech-stack">
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">Flask</span>
+                <span class="tech-tag">MySQL</span>
+                <span class="tech-tag">JavaScript</span>
+                <span class="tech-tag">Bootstrap</span>
+                <span class="tech-tag">AI</span>
+              </div>
+              <div class="project-actions mt-4">
+                <a href="#" class="btn btn-primary-glow btn-sm"><i class="fas fa-eye me-2"></i>View Details</a>
+                <a href="#" class="btn btn-outline-glow btn-sm ms-2"><i class="fab fa-github me-2"></i>Coming Soon</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Autonomous Robot -->
+        <div class="col-lg-4 col-md-6 col-12 project-item" data-category="ai" data-aos="fade-up">
+          <div class="project-card glass-card">
+            <div class="project-img-wrapper">
+              <div class="project-img elearn-placeholder">
+                <div class="elearn-visual">
+                  <i class="fas fa-robot elearn-icon"></i>
+                  <span>Autonomous Robot</span>
+                </div>
+              </div>
+              <div class="project-tag ai-tag">Award Winner</div>
+            </div>
+            <div class="project-card-body">
+              <h4 class="project-title">Autonomous Multi-Mode Robot</h4>
+              <div class="mb-2">
+                <span class="badge bg-primary">🏆 1st Place Winner</span>
+              </div>
+              <p class="text-muted mb-2" style="font-size:0.82rem;">2025 • Award Winning Project</p>
+              <p class="project-desc">
+                Designed and built a multi-purpose autonomous robot featuring Farmer Mode, Delivery Mode, and Campus
+                Guide Mode using intelligent navigation concepts. Secured First Place at the Avishkar Event at Silver
+                Oak University.
+              </p>
+              <p class="project-role"><strong>Role:</strong> Developer &amp; Problem Solver</p>
+              <div class="project-tech-stack">
+                <span class="tech-tag">IoT</span>
+                <span class="tech-tag">Robotics</span>
+                <span class="tech-tag">Automation</span>
+                <span class="tech-tag">Sensors</span>
+              </div>
+              <div class="project-actions mt-4">
+                <a href="#" class="btn btn-primary-glow btn-sm"><i class="fas fa-eye me-2"></i>View Details</a>
+                <a href="#" class="btn btn-outline-glow btn-sm ms-2"><i class="fab fa-github me-2"></i>Private Repo</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Birthday Website -->
+        <div class="col-lg-4 col-md-6 col-12 project-item" data-category="web" data-aos="fade-up">
+          <div class="project-card glass-card">
+            <div class="project-img-wrapper">
+              <div class="project-img elearn-placeholder">
+                <div class="elearn-visual">
+                  <i class="fas fa-birthday-cake elearn-icon"></i>
+                  <span>Birthday Website</span>
+                </div>
+              </div>
+              <div class="project-tag web-tag">Frontend</div>
+            </div>
+            <div class="project-card-body">
+              <h4 class="project-title">Birthday Celebration Website</h4>
+              <div class="mb-2">
+                <span class="badge bg-success">✔ Live</span>
+              </div>
+              <p class="text-muted mb-2" style="font-size:0.82rem;">2026 • Client Project</p>
+              <p class="project-desc">
+                A premium animated birthday website featuring cinematic transitions, personalized videos, interactive
+                memories, responsive layouts, background music, and immersive storytelling designed for a real client.
+              </p>
+              <p class="project-role"><strong>Role:</strong> Frontend Developer &amp; UI Designer</p>
+              <div class="project-tech-stack">
+                <span class="tech-tag">HTML5</span>
+                <span class="tech-tag">CSS3</span>
+                <span class="tech-tag">JavaScript</span>
+                <span class="tech-tag">Animations</span>
+              </div>
+              <div class="project-actions mt-4">
+                <a href="#" class="btn btn-primary-glow btn-sm"><i class="fas fa-eye me-2"></i>View Details</a>
+                <a href="#" class="btn btn-outline-glow btn-sm ms-2"><i class="fab fa-github me-2"></i>GitHub</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- DSR Autonomous Delivery System -->
+        <div class="col-lg-4 col-md-6 col-12 project-item" data-category="ai" data-aos="fade-up">
+          <div class="project-card glass-card">
+            <div class="project-img-wrapper">
+              <div class="project-img elearn-placeholder">
+                <div class="elearn-visual">
+                  <i class="fas fa-truck-fast elearn-icon"></i>
+                  <span>DSR Delivery</span>
+                </div>
+              </div>
+              <div class="project-tag ai-tag">AI + IoT</div>
+            </div>
+            <div class="project-card-body">
+              <h4 class="project-title">DSR Autonomous Delivery System</h4>
+              <div class="mb-2">
+                <span class="badge bg-secondary">Private Repository</span>
+              </div>
+              <p class="text-muted mb-2" style="font-size:0.82rem;">2026 • MSc IT Project</p>
+              <p class="project-desc">
+                A smart autonomous campus delivery platform that enables robot-based package delivery with live robot
+                tracking, OTP verification, intelligent route planning, order management, and real-time delivery
+                updates.
+              </p>
+              <p class="project-role"><strong>Role:</strong> Full Stack Developer &amp; System Designer</p>
+              <div class="project-tech-stack">
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">Flask</span>
+                <span class="tech-tag">MQTT</span>
+                <span class="tech-tag">MySQL</span>
+                <span class="tech-tag">IoT</span>
+              </div>
+              <div class="project-actions mt-4">
+                <a href="#" class="btn btn-primary-glow btn-sm"><i class="fas fa-eye me-2"></i>View Details</a>
+                <a href="#" class="btn btn-outline-glow btn-sm ms-2"><i class="fab fa-github me-2"></i>Private Repo</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Online Perfume Store -->
+        <div class="col-lg-4 col-md-6 col-12 project-item" data-category="ecommerce" data-aos="fade-up">
+          <div class="project-card glass-card">
+            <div class="project-img-wrapper">
+              <div class="project-img elearn-placeholder">
+                <div class="elearn-visual">
+                  <i class="fas fa-store elearn-icon"></i>
+                  <span>Perfume Store</span>
+                </div>
+              </div>
+              <div class="project-tag ecommerce-tag">E-Commerce</div>
+            </div>
+            <div class="project-card-body">
+              <h4 class="project-title">Online Perfume Store</h4>
+              <div class="mb-2">
+                <span class="badge bg-info text-dark">Academic Project</span>
+              </div>
+              <p class="text-muted mb-2" style="font-size:0.82rem;">2024 • BCA Final Year Project</p>
+              <p class="project-desc">
+                A complete e-commerce web application featuring secure authentication, product catalog, shopping cart,
+                order management, admin dashboard, inventory management, and responsive user interface.
+              </p>
+              <p class="project-role"><strong>Role:</strong> Full Stack Developer</p>
+              <div class="project-tech-stack">
+                <span class="tech-tag">PHP</span>
+                <span class="tech-tag">MySQL</span>
+                <span class="tech-tag">HTML5</span>
+                <span class="tech-tag">CSS3</span>
+                <span class="tech-tag">JavaScript</span>
+              </div>
+              <div class="project-actions mt-4">
+                <a href="#" class="btn btn-primary-glow btn-sm"><i class="fas fa-eye me-2"></i>View Details</a>
+                <a href="#" class="btn btn-outline-glow btn-sm ms-2"><i class="fab fa-github me-2"></i>GitHub</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- AI Commercial Advertisement -->
+        <div class="col-lg-4 col-md-6 col-12 project-item" data-category="client" data-aos="fade-up">
+          <div class="project-card glass-card">
+            <div class="project-img-wrapper">
+              <div class="project-img elearn-placeholder">
+                <div class="elearn-visual">
+                  <i class="fas fa-film elearn-icon"></i>
+                  <span>AI Commercials</span>
+                </div>
+              </div>
+              <div class="project-tag ai-tag">Client Work</div>
+            </div>
+            <div class="project-card-body">
+              <h4 class="project-title">AI Commercial Advertisement Production</h4>
+              <div class="mb-2">
+                <span class="badge bg-dark">Client Project</span>
+              </div>
+              <p class="text-muted mb-2" style="font-size:0.82rem;">2026 • Professional Work</p>
+              <p class="project-desc">
+                Created commercial-quality AI advertisements using Kling AI, ElevenLabs, Nano Banana, Flow AI, and
+                advanced prompt engineering. Responsible for storyboard planning, character consistency, cinematic
+                animation, and voice synchronization.
+              </p>
+              <p class="project-role"><strong>Role:</strong> Prompt Engineer &amp; AI Creative Developer</p>
+              <div class="project-tech-stack">
+                <span class="tech-tag">Prompt Eng.</span>
+                <span class="tech-tag">Kling AI</span>
+                <span class="tech-tag">ElevenLabs</span>
+                <span class="tech-tag">Flow AI</span>
+              </div>
+              <div class="project-actions mt-4">
+                <a href="#" class="btn btn-primary-glow btn-sm"><i class="fas fa-eye me-2"></i>View Details</a>
+                <a href="#" class="btn btn-outline-glow btn-sm ms-2"><i class="fas fa-lock me-2"></i>Private</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Luxury Real Estate AI Campaign -->
+        <div class="col-lg-4 col-md-6 col-12 project-item" data-category="client" data-aos="fade-up">
+          <div class="project-card glass-card">
+            <div class="project-img-wrapper">
+              <div class="project-img elearn-placeholder">
+                <div class="elearn-visual">
+                  <i class="fas fa-building elearn-icon"></i>
+                  <span>Luxury AI Ads</span>
+                </div>
+              </div>
+              <div class="project-tag ai-tag">Client Work</div>
+            </div>
+            <div class="project-card-body">
+              <h4 class="project-title">Luxury Real Estate AI Campaign</h4>
+              <div class="mb-2">
+                <span class="badge bg-dark">Private Client</span>
+              </div>
+              <p class="text-muted mb-2" style="font-size:0.82rem;">2026 • Commercial Project</p>
+              <p class="project-desc">
+                Developed premium AI-generated promotional campaigns for luxury residential projects using cinematic
+                storytelling, character consistency, advanced prompt engineering, and commercial-quality animation to
+                enhance brand marketing.
+              </p>
+              <p class="project-role"><strong>Role:</strong> Prompt Engineer &amp; AI Video Producer</p>
+              <div class="project-tech-stack">
+                <span class="tech-tag">Prompt Eng.</span>
+                <span class="tech-tag">AI Video</span>
+                <span class="tech-tag">Storyboarding</span>
+                <span class="tech-tag">Kling AI</span>
+              </div>
+              <div class="project-actions mt-4">
+                <a href="#" class="btn btn-primary-glow btn-sm"><i class="fas fa-eye me-2"></i>View Details</a>
+                <a href="#" class="btn btn-outline-glow btn-sm ms-2"><i class="fas fa-lock me-2"></i>Private</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- StockAware -->
+        <div class="col-lg-4 col-md-6 col-12 project-item" data-category="ai" data-aos="fade-up">
+          <div class="project-card glass-card">
+            <div class="project-img-wrapper">
+              <div class="project-img elearn-placeholder">
+                <div class="elearn-visual">
+                  <i class="fas fa-chart-line elearn-icon"></i>
+                  <span>StockAware</span>
+                </div>
+              </div>
+              <div class="project-tag ai-tag">Ideathon</div>
+            </div>
+            <div class="project-card-body">
+              <h4 class="project-title">StockAware</h4>
+              <div class="mb-2">
+                <span class="badge bg-primary">Ideathon Project</span>
+              </div>
+              <p class="text-muted mb-2" style="font-size:0.82rem;">2026 • Mobile App Concept</p>
+              <p class="project-desc">
+                An educational finance application developed for students to learn stock market fundamentals, investment
+                awareness, online fraud prevention, and financial literacy through an interactive mobile experience.
+              </p>
+              <p class="project-role"><strong>Role:</strong> App Designer &amp; Developer</p>
+              <div class="project-tech-stack">
+                <span class="tech-tag">Android</span>
+                <span class="tech-tag">UI/UX</span>
+                <span class="tech-tag">Finance</span>
+                <span class="tech-tag">Education</span>
+              </div>
+              <div class="project-actions mt-4">
+                <a href="#" class="btn btn-primary-glow btn-sm"><i class="fas fa-eye me-2"></i>View Details</a>
+                <a href="#" class="btn btn-outline-glow btn-sm ms-2"><i class="fas fa-lock me-2"></i>Prototype</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- University Website -->
+        <div class="col-lg-4 col-md-6 col-12 project-item" data-category="web" data-aos="fade-up">
+          <div class="project-card glass-card">
+            <div class="project-img-wrapper">
+              <div class="project-img elearn-placeholder">
+                <div class="elearn-visual">
+                  <i class="fas fa-university elearn-icon"></i>
+                  <span>University Website</span>
+                </div>
+              </div>
+              <div class="project-tag web-tag">Academic</div>
+            </div>
+            <div class="project-card-body">
+              <h4 class="project-title">University Website</h4>
+              <div class="mb-2">
+                <span class="badge bg-info text-dark">Academic Project</span>
+              </div>
+              <p class="text-muted mb-2" style="font-size:0.82rem;">2024 • BCA Project</p>
+              <p class="project-desc">
+                Developed a responsive university information portal featuring modern layouts, dynamic content
+                presentation, mobile-first design, and intuitive navigation to improve accessibility and user
+                experience.
+              </p>
+              <p class="project-role"><strong>Role:</strong> Frontend Developer</p>
+              <div class="project-tech-stack">
+                <span class="tech-tag">HTML5</span>
+                <span class="tech-tag">CSS3</span>
+                <span class="tech-tag">JavaScript</span>
+                <span class="tech-tag">Responsive UI</span>
+              </div>
+              <div class="project-actions mt-4">
+                <a href="#" class="btn btn-primary-glow btn-sm"><i class="fas fa-eye me-2"></i>View Details</a>
+                <a href="#" class="btn btn-outline-glow btn-sm ms-2"><i class="fab fa-github me-2"></i>GitHub</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ACHIEVEMENTS SECTION ===== -->
+  <section class="section-padding achievements-bg" id="achievements">
+    <div class="container">
+      <div class="section-header text-center" data-aos="fade-up">
+        <span class="section-tag">My Wins</span>
+        <h2 class="section-title">Achievements &amp; <span class="gradient-text">Certifications</span></h2>
+        <div class="section-line"></div>
+      </div>
+
+      <!-- Achievements -->
+      <div class="row g-4 mt-4">
+        <div class="col-lg-3 col-md-6 col-12" data-aos="fade-up" data-aos-delay="100">
+          <div class="achievement-card glass-card">
+            <div class="achievement-icon"><i class="fas fa-trophy"></i></div>
+            <h4 class="achievement-title">🏆 1st Place</h4>
+            <p class="achievement-desc">Avishkar Event, Silver Oak University</p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 col-12" data-aos="fade-up" data-aos-delay="200">
+          <div class="achievement-card glass-card">
+            <div class="achievement-icon"><i class="fas fa-award"></i></div>
+            <h4 class="achievement-title">🥈 Runner-up</h4>
+            <p class="achievement-desc">Technical Presentation, Ganpat University</p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 col-12" data-aos="fade-up" data-aos-delay="300">
+          <div class="achievement-card glass-card">
+            <div class="achievement-icon"><i class="fas fa-award"></i></div>
+            <h4 class="achievement-title">🥈 Runner-up</h4>
+            <p class="achievement-desc">Non-Technical Presentation, Ganpat University</p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 col-12" data-aos="fade-up" data-aos-delay="400">
+          <div class="achievement-card glass-card">
+            <div class="achievement-icon"><i class="fas fa-check-circle"></i></div>
+            <h4 class="achievement-title">10+ Projects</h4>
+            <p class="achievement-desc">5 Months Internship • Professional Prompt Engineer</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Certifications -->
+      <div class="section-header text-center mt-5 mb-4" data-aos="fade-up">
+        <span class="section-tag">Credentials</span>
+        <h3 class="section-subtitle-heading">Certifications</h3>
+      </div>
+      <div class="row g-3" data-aos="fade-up" data-aos-delay="100">
+        <div class="col-lg-4 col-md-6 col-6">
+          <div class="cert-card glass-card">
+            <i class="fab fa-android cert-icon"></i>
+            <span>Android Application Development</span>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 col-6">
+          <div class="cert-card glass-card">
+            <i class="fab fa-python cert-icon"></i>
+            <span>Python Fundamentals</span>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 col-6">
+          <div class="cert-card glass-card">
+            <i class="fas fa-hashtag cert-icon"></i>
+            <span>Foundational C#</span>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 col-6">
+          <div class="cert-card glass-card">
+            <i class="fab fa-java cert-icon"></i>
+            <span>Java Programming</span>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 col-6">
+          <div class="cert-card glass-card">
+            <i class="fab fa-php cert-icon"></i>
+            <span>PHP Development</span>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 col-6">
+          <div class="cert-card glass-card">
+            <i class="fas fa-laptop cert-icon"></i>
+            <span>Digital Productivity</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== EXPERIENCE SECTION ===== -->
+  <section class="section-padding experience-bg" id="experience">
+    <div class="container">
+      <div class="section-header text-center" data-aos="fade-up">
+        <span class="section-tag">My Journey</span>
+        <h2 class="section-title">Experience &amp; <span class="gradient-text">Education</span></h2>
+        <div class="section-line"></div>
+      </div>
+
+      <div class="row justify-content-center mt-5">
+        <div class="col-lg-9">
+          <div class="timeline">
+
+            <!-- Prompt Engineer -->
+            <div class="timeline-item left" data-aos="fade-right" data-aos-delay="100">
+              <div class="timeline-dot">
+                <i class="fas fa-wand-magic-sparkles"></i>
+              </div>
+              <div class="timeline-card glass-card">
+                <div class="timeline-header">
+                  <div>
+                    <h4 class="timeline-title">Prompt Engineer – Image &amp; Video Generation</h4>
+                    <div class="timeline-company">
+                      <i class="fas fa-building me-1"></i>FYD Studio
+                    </div>
+                  </div>
+                  <div class="timeline-badge internship-badge">Current</div>
+                </div>
+                <div class="timeline-meta">
+                  <span><i class="fas fa-calendar-alt me-1"></i>Mar 2025 – Present</span>
+                  <span><i class="fas fa-map-marker-alt me-1"></i>Ahmedabad, Gujarat</span>
+                </div>
+                <p class="timeline-desc">
+                  Working as a Prompt Engineer specializing in AI-powered image and video generation. Designing advanced
+                  prompts, producing commercial AI advertisements, maintaining character consistency, optimizing creative
+                  workflows, and collaborating with creative teams to deliver high-quality visual content using
+                  cutting-edge generative AI tools.
+                </p>
+                <div class="timeline-skills">
+                  <span>Prompt Engineering</span>
+                  <span>AI Image Generation</span>
+                  <span>AI Video Generation</span>
+                  <span>Storyboarding</span>
+                  <span>Commercial Production</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Internship -->
+            <div class="timeline-item right" data-aos="fade-left" data-aos-delay="200">
+              <div class="timeline-dot">
+                <i class="fas fa-code"></i>
+              </div>
+              <div class="timeline-card glass-card">
+                <div class="timeline-header">
+                  <div>
+                    <h4 class="timeline-title">Full Stack Developer Intern</h4>
+                    <div class="timeline-company">
+                      <i class="fas fa-building me-1"></i>Upeya Electronics
+                    </div>
+                  </div>
+                  <div class="timeline-badge internship-badge">Internship</div>
+                </div>
+                <div class="timeline-meta">
+                  <span><i class="fas fa-calendar-alt me-1"></i>Jan 2025 – May 2025</span>
+                  <span><i class="fas fa-map-marker-alt me-1"></i>Gujarat, India</span>
+                </div>
+                <p class="timeline-desc">
+                  Completed a five-month Full Stack Development internship where I developed responsive web applications
+                  using HTML, CSS, JavaScript, PHP, and SQL. Worked on backend integration, REST APIs, database
+                  management, agile development practices, and client requirement discussions.
+                </p>
+                <div class="timeline-skills">
+                  <span>HTML</span>
+                  <span>CSS</span>
+                  <span>JavaScript</span>
+                  <span>PHP</span>
+                  <span>SQL</span>
+                  <span>REST APIs</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- MSc -->
+            <div class="timeline-item left" data-aos="fade-right" data-aos-delay="300">
+              <div class="timeline-dot">
+                <i class="fas fa-user-graduate"></i>
+              </div>
+              <div class="timeline-card glass-card">
+                <div class="timeline-header">
+                  <div>
+                    <h4 class="timeline-title">Master of Science in Information Technology (MSc IT)</h4>
+                    <div class="timeline-company">
+                      <i class="fas fa-university me-1"></i>Silver Oak University
+                    </div>
+                  </div>
+                  <div class="timeline-badge education-badge">Education</div>
+                </div>
+                <div class="timeline-meta">
+                  <span><i class="fas fa-calendar-alt me-1"></i>2025 – Present</span>
+                  <span><i class="fas fa-map-marker-alt me-1"></i>Ahmedabad, Gujarat</span>
+                </div>
+                <p class="timeline-desc">
+                  Currently pursuing a Master's degree in Information Technology with a focus on Artificial
+                  Intelligence, Full Stack Development, Software Engineering, Database Systems, DevOps, Machine
+                  Learning, and modern software development practices while building industry-oriented projects.
+                </p>
+                <div class="timeline-skills">
+                  <span>Artificial Intelligence</span>
+                  <span>Full Stack</span>
+                  <span>Software Engineering</span>
+                  <span>Machine Learning</span>
+                  <span>DevOps</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- BCA -->
+            <div class="timeline-item right" data-aos="fade-left" data-aos-delay="400">
+              <div class="timeline-dot">
+                <i class="fas fa-graduation-cap"></i>
+              </div>
+              <div class="timeline-card glass-card">
+                <div class="timeline-header">
+                  <div>
+                    <h4 class="timeline-title">Bachelor of Computer Applications (BCA)</h4>
+                    <div class="timeline-company">
+                      <i class="fas fa-university me-1"></i>Ganpat University
+                    </div>
+                  </div>
+                  <div class="timeline-badge education-badge">Education</div>
+                </div>
+                <div class="timeline-meta">
+                  <span><i class="fas fa-calendar-alt me-1"></i>2021 – 2024</span>
+                  <span><i class="fas fa-map-marker-alt me-1"></i>Kherva, Gujarat</span>
+                </div>
+                <p class="timeline-desc">
+                  Completed Bachelor of Computer Applications with specialization in Web Development, Java, PHP,
+                  Database Systems, and Software Development. Developed multiple academic projects and actively
+                  participated in technical competitions and presentations.
+                </p>
+                <div class="timeline-skills">
+                  <span>Java</span>
+                  <span>PHP</span>
+                  <span>JavaScript</span>
+                  <span>MySQL</span>
+                  <span>Web Development</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT SECTION ===== -->
+  <section class="section-padding" id="contact">
+    <div class="container">
+      <div class="section-header text-center" data-aos="fade-up">
+        <span class="section-tag">Get In Touch</span>
+        <h2 class="section-title">Contact <span class="gradient-text">Me</span></h2>
+        <div class="section-line"></div>
+        <p class="section-subtitle">Have a project in mind or just want to chat? I'd love to hear from you!</p>
+      </div>
+
+      <div class="row g-4 g-lg-5 mt-3">
+        <!-- Contact Info -->
+        <div class="col-lg-5" data-aos="fade-right" data-aos-delay="100">
+          <div class="contact-info-wrapper">
+            <div class="contact-info-card glass-card">
+              <h4 class="contact-info-title">Let's Connect</h4>
+              <div class="contact-info-items">
+                <div class="contact-info-item" id="contact-email-item">
+                  <div class="contact-icon-wrapper"><i class="fas fa-envelope"></i></div>
+                  <div>
+                    <span class="contact-label">Email</span>
+                    <a href="mailto:pandyaharsh528@gmail.com" class="contact-value"
+                      id="contact-email">pandyaharsh528@gmail.com</a>
+                  </div>
+                </div>
+                <div class="contact-info-item" id="contact-location-item">
+                  <div class="contact-icon-wrapper"><i class="fas fa-map-marker-alt"></i></div>
+                  <div>
+                    <span class="contact-label">Location</span>
+                    <span class="contact-value">Ahmedabad, Gujarat, India</span>
+                  </div>
+                </div>
+                <div class="contact-info-item" id="contact-uni-item">
+                  <div class="contact-icon-wrapper"><i class="fas fa-university"></i></div>
+                  <div>
+                    <span class="contact-label">University</span>
+                    <span class="contact-value">Silver Oak University</span>
+                  </div>
+                </div>
+                <div class="contact-info-item">
+                  <div class="contact-icon-wrapper"><i class="fas fa-phone"></i></div>
+                  <div>
+                    <span class="contact-label">Phone</span>
+                    <a href="tel:+919825695565" class="contact-value">+91 98256 95565</a>
+                  </div>
+                </div>
+              </div>
+              <div class="contact-social-links">
+                <h5 class="social-title">Find Me On</h5>
+                <div class="social-icons">
+                  <a href="https://github.com/harshpdcode" class="social-icon-link" target="_blank" rel="noopener" title="GitHub">
+                    <i class="fab fa-github"></i>
+                  </a>
+                  <a href="https://www.linkedin.com/in/harsh-pandya-24ab132b8" class="social-icon-link" target="_blank" rel="noopener" title="LinkedIn">
+                    <i class="fab fa-linkedin-in"></i>
+                  </a>
+                  <a href="mailto:pandyaharsh528@gmail.com" class="social-icon-link" title="Email">
+                    <i class="fas fa-envelope"></i>
+                  </a>
+                  <a href="#" class="social-icon-link" target="_blank" title="Instagram">
+                    <i class="fab fa-instagram"></i>
+                  </a>
+                </div>
+                <div class="mt-4 availability-badge">
+                  <i class="fas fa-circle text-success me-2"></i>
+                  Available for Freelance &amp; Full-Time Opportunities
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Contact Form -->
+        <div class="col-lg-7" data-aos="fade-left" data-aos-delay="200">
+          <div class="contact-form-wrapper glass-card">
+            <h4 class="contact-form-title">Send Me a Message</h4>
+            <form id="contactForm" novalidate>
+              <div class="row g-3">
+                <div class="col-md-6 col-12">
+                  <div class="form-group-custom">
+                    <label for="contactName">Full Name</label>
+                    <input type="text" id="contactName" name="name" class="form-control-custom" placeholder="Your Name"
+                      required />
+                    <span class="form-icon"><i class="fas fa-user"></i></span>
+                  </div>
+                </div>
+                <div class="col-md-6 col-12">
+                  <div class="form-group-custom">
+                    <label for="contactEmail">Email Address</label>
+                    <input type="email" id="contactEmail" name="email" class="form-control-custom"
+                      placeholder="your@email.com" required />
+                    <span class="form-icon"><i class="fas fa-envelope"></i></span>
+                  </div>
+                </div>
+                <div class="col-12">
+                  <div class="form-group-custom">
+                    <label for="contactSubject">Subject</label>
+                    <input type="text" id="contactSubject" name="subject" class="form-control-custom"
+                      placeholder="Project Proposal / Collaboration..." required />
+                    <span class="form-icon"><i class="fas fa-tag"></i></span>
+                  </div>
+                </div>
+                <div class="col-12">
+                  <div class="form-group-custom">
+                    <label for="contactMessage">Message</label>
+                    <textarea id="contactMessage" name="message" class="form-control-custom" rows="5"
+                      placeholder="Write your message here..." required></textarea>
+                    <span class="form-icon textarea-icon"><i class="fas fa-comment-alt"></i></span>
+                  </div>
+                </div>
+                <div class="col-12">
+                  <button type="submit" class="btn btn-send-msg" id="sendMsgBtn">
+                    <span class="btn-text">Send Message</span>
+                    <i class="fas fa-paper-plane ms-2"></i>
+                  </button>
+                </div>
+              </div>
+            </form>
+            <div class="form-success-msg" id="formSuccessMsg">
+              <i class="fas fa-check-circle"></i>
+              <span>Thank you! Your message has been sent. I'll get back to you soon! 🎉</span>
+            </div>
+            <div class="form-error-msg" id="formErrorMsg">
+              <i class="fas fa-exclamation-circle"></i>
+              <span></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="site-footer">
+    <div class="footer-glow"></div>
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-logo">
+          <span class="logo-bracket">&lt;</span>Harsh<span class="logo-bracket">/&gt;</span>
+        </div>
+        <p class="footer-tagline">Building digital experiences with passion &amp; precision.</p>
+        <div class="footer-social">
+          <a href="https://github.com/harshpdcode" target="_blank" rel="noopener" title="GitHub">
+            <i class="fab fa-github"></i>
+          </a>
+          <a href="https://www.linkedin.com/in/harsh-pandya-24ab132b8" target="_blank" rel="noopener" title="LinkedIn">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+          <a href="mailto:pandyaharsh528@gmail.com" title="Email">
+            <i class="fas fa-envelope"></i>
+          </a>
+          <a href="#" target="_blank" title="Instagram">
+            <i class="fab fa-instagram"></i>
+          </a>
+        </div>
+      </div>
+      <div class="footer-divider"></div>
+      <div class="footer-bottom">
+        <p>&copy; <span id="currentYear"></span> <strong>Harsh Pandya</strong>. Crafted with <i
+            class="fas fa-heart text-danger"></i> &amp; lots of ☕</p>
+        <div class="footer-links">
+          <a href="#home">Home</a>
+          <a href="#about">About</a>
+          <a href="#projects">Projects</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to Top -->
+  <button class="back-to-top" id="backToTop" title="Back to top" aria-label="Back to top">
+    <i class="fas fa-chevron-up"></i>
+  </button>
+
+  <!-- Scripts -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <!-- EmailJS SDK -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script src="script.js"></script>
+</body>
+
+</html>
