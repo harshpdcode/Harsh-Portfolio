@@ -1,0 +1,2 @@
+# Netlify Redirects
+/admin-edit    /admin-edit.html    200

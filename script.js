@@ -139,7 +139,7 @@ $(document).ready(function () {
     }
 
     // Active nav link
-    const sections = ['home', 'about', 'skills', 'projects', 'achievements', 'experience', 'contact'];
+    const sections = ['home', 'about', 'services', 'skills', 'projects', 'achievements', 'experience', 'contact'];
     sections.forEach(id => {
       const sec = $('#' + id);
       if (sec.length) {
@@ -168,10 +168,11 @@ $(document).ready(function () {
   // ---- TYPED TEXT EFFECT ----
   const typedEl    = document.getElementById('typedText');
   const phrases    = [
+    'Freelance Web Developer',
     'Full Stack Developer',
-    'Prompt Engineer',
-    'AI Creative Developer',
+    'E-Commerce Specialist',
     'UI/UX Designer',
+    'AI Creative Developer',
     'Problem Solver',
   ];
   let phraseIdx    = 0;
@@ -268,7 +269,7 @@ $(document).ready(function () {
   });
 
   // ============================================================
-  // ---- CONTACT FORM — EmailJS Integration ----
+  // ---- CONTACT FORM — Netlify Forms + EmailJS Integration ----
   // ============================================================
   $('#contactForm').on('submit', function (e) {
     e.preventDefault();
@@ -303,48 +304,69 @@ $(document).ready(function () {
     btn.html('<i class="fas fa-spinner fa-spin me-2"></i> Sending...').prop('disabled', true);
     $('#formSuccessMsg, #formErrorMsg').hide();
 
-    // Build template parameters — variable names MUST match your EmailJS template exactly
-    const now = new Date();
-    const sentTime = now.toLocaleString('en-IN', {
-      timeZone:  'Asia/Kolkata',
-      weekday:   'long',
-      year:      'numeric',
-      month:     'long',
-      day:       'numeric',
-      hour:      '2-digit',
-      minute:    '2-digit',
+    // Prepare Netlify FormData
+    const formElement = document.getElementById('contactForm');
+    const formData = new FormData(formElement);
+    const urlEncodedData = new URLSearchParams(formData).toString();
+
+    // Primary Submission: Netlify Forms AJAX
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: urlEncodedData
+    })
+    .then(function (response) {
+      if (response.ok) {
+        handleSuccess();
+      } else {
+        // Fallback to EmailJS if Netlify form is not active or during local development
+        sendWithEmailJS();
+      }
+    })
+    .catch(function () {
+      // Fallback to EmailJS on network/server error
+      sendWithEmailJS();
     });
 
-    const templateParams = {
-      from_name:  name,
-      from_email: email,
-      reply_to:   email,
-      subject:    subject,
-      message:    message,
-      to_name:    'Harsh Pandya',
-      sent_time:  sentTime,
-    };
+    function handleSuccess() {
+      btn.html('<span class="btn-text">Send Message</span><i class="fas fa-paper-plane ms-2"></i>').prop('disabled', false);
+      formElement.reset();
+      $('#formSuccessMsg').css('display', 'flex').hide().fadeIn(400);
+      setTimeout(() => $('#formSuccessMsg').fadeOut(400), 6000);
+    }
 
-    // Send via EmailJS
-    emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams)
-      .then(function (response) {
-        // ✅ Success
-        console.log('EmailJS SUCCESS:', response.status, response.text);
-        btn.html('<span class="btn-text">Send Message</span><i class="fas fa-paper-plane ms-2"></i>').prop('disabled', false);
-        $('#contactForm')[0].reset();
-        $('#formSuccessMsg').css('display', 'flex').hide().fadeIn(400);
-        setTimeout(() => $('#formSuccessMsg').fadeOut(400), 6000);
-      })
-      .catch(function (err) {
-        // ❌ Error — log exact details to help debug
-        console.error('EmailJS FAILED. Status:', err.status, '| Text:', err.text, '| Full error:', err);
-        btn.html('<span class="btn-text">Send Message</span><i class="fas fa-paper-plane ms-2"></i>').prop('disabled', false);
-        // Show actionable error with status code
-        const errMsg = err && err.text
-          ? 'Error ' + err.status + ': ' + err.text + '. Check the browser console (F12) for details.'
-          : 'Could not send. Check your EmailJS template variable names match exactly. See console (F12).';
-        showFormError(errMsg);
+    function sendWithEmailJS() {
+      const now = new Date();
+      const sentTime = now.toLocaleString('en-IN', {
+        timeZone:  'Asia/Kolkata',
+        weekday:   'long',
+        year:      'numeric',
+        month:     'long',
+        day:       'numeric',
+        hour:      '2-digit',
+        minute:    '2-digit',
       });
+
+      const templateParams = {
+        from_name:  name,
+        from_email: email,
+        reply_to:   email,
+        subject:    subject,
+        message:    message,
+        to_name:    'Harsh Pandya',
+        sent_time:  sentTime,
+      };
+
+      emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams)
+        .then(function () {
+          handleSuccess();
+        })
+        .catch(function (err) {
+          console.error('EmailJS Fallback FAILED:', err);
+          btn.html('<span class="btn-text">Send Message</span><i class="fas fa-paper-plane ms-2"></i>').prop('disabled', false);
+          showFormError('Message could not be sent automatically. Please reach out directly at pandyaharsh528@gmail.com or via WhatsApp.');
+        });
+    }
   });
 
   function showFormError(msg) {
@@ -366,6 +388,7 @@ $(document).ready(function () {
   // ---- TILT EFFECT on Project Cards ----
   document.querySelectorAll('.project-card').forEach(card => {
     card.addEventListener('mousemove', function (e) {
+      if (window.innerWidth <= 991) return;
       const rect    = this.getBoundingClientRect();
       const x       = e.clientX - rect.left;
       const y       = e.clientY - rect.top;
@@ -433,6 +456,55 @@ $(document).ready(function () {
     }
   `;
   document.head.appendChild(styleTag);
+
+  // ---- APPLY ADMIN EDITS (if customized via /admin-edit) ----
+  function applyAdminEdits() {
+    try {
+      const raw = localStorage.getItem('harsh_portfolio_data');
+      if (!raw) return;
+      const data = JSON.parse(raw);
+
+      // Hero
+      if (data.heroDescription) $('.hero-description').text(data.heroDescription);
+      if (data.monthsPromptEng) {
+        const statEl = $('[data-stat="months-prompt-eng"]');
+        if (statEl.length) statEl.attr('data-count', data.monthsPromptEng).text(data.monthsPromptEng);
+      }
+
+      // Services pricing
+      if (data.basicPrice) $('.service-basic-price').text(data.basicPrice);
+      if (data.completePrice) $('.service-complete-price').text(data.completePrice);
+      if (data.deliveryTime) $('.service-delivery-time').text(data.deliveryTime);
+      if (data.revisionCount) $('.service-revision-count').text(data.revisionCount);
+
+      // Contact info
+      if (data.whatsappNumber) {
+        const waNum = data.whatsappNumber.replace(/[^0-9]/g, '');
+        $('.whatsapp-float').attr('href', `https://wa.me/${waNum}?text=Hi%20Harsh%2C%20I%20saw%20your%20portfolio%20and%20want%20to%20discuss%20a%20website%20project.`);
+        $('.btn-plan-basic').attr('href', `https://wa.me/${waNum}?text=Hi%20Harsh%2C%20I%20am%20interested%20in%20the%20Basic%20E-Commerce%20plan.`);
+        $('.btn-plan-complete').attr('href', `https://wa.me/${waNum}?text=Hi%20Harsh%2C%20I%20am%20interested%20in%20the%20Complete%20E-Commerce%20plan.`);
+      }
+      if (data.email) {
+        $('#contact-email').text(data.email).attr('href', 'mailto:' + data.email);
+        $('[data-contact="email"]').attr('href', 'mailto:' + data.email);
+      }
+      if (data.phone) {
+        $('[data-contact="phone"]').text(data.phone).attr('href', 'tel:' + data.phone.replace(/[^0-9+]/g, ''));
+      }
+      if (data.instagramUrl && data.instagramUrl.trim()) {
+        $('[data-social="instagram"]').attr('href', data.instagramUrl).show();
+      }
+      if (data.demoStoreUrl && data.demoStoreUrl.trim()) {
+        const demoBtn = $('#liveDemoStoreBtn');
+        if (demoBtn.length) {
+          demoBtn.replaceWith(`<a href="${data.demoStoreUrl}" target="_blank" rel="noopener noreferrer" class="btn btn-primary-glow btn-sm" id="liveDemoStoreBtn"><i class="fas fa-external-link-alt me-2"></i>View Live Demo</a>`);
+        }
+      }
+    } catch (e) {
+      console.warn('Could not apply local admin edits:', e);
+    }
+  }
+  applyAdminEdits();
 
   // ---- INITIAL ACTIVE NAV ----
   $('#nav-home').addClass('active');

@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Editor | Harsh Pandya Portfolio</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+    rel="stylesheet" />
+
+  <!-- Bootstrap 5 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" />
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <style>
+    :root {
+      --primary: #7c3aed;
+      --primary-light: #9d5ff5;
+      --secondary: #06b6d4;
+      --accent: #f59e0b;
+      --dark-bg: #040714;
+      --dark-card: rgba(14, 16, 35, 0.85);
+      --dark-card-border: rgba(124, 58, 237, 0.25);
+      --text-primary: #f1f5f9;
+      --text-secondary: #94a3b8;
+      --text-muted: #64748b;
+      --glass-bg: rgba(255, 255, 255, 0.04);
+      --glass-border: rgba(255, 255, 255, 0.08);
+      --gradient-1: linear-gradient(135deg, #7c3aed, #06b6d4);
+      --gradient-2: linear-gradient(135deg, #f59e0b, #ef4444);
+      --font-main: 'Outfit', sans-serif;
+      --font-alt: 'Space Grotesk', sans-serif;
+      --border-radius: 14px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background-color: var(--dark-bg);
+      color: var(--text-primary);
+      font-family: var(--font-main);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    /* Top Navigation */
+    .admin-navbar {
+      background: rgba(4, 7, 20, 0.95);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--glass-border);
+      position: sticky;
+      top: 0;
+      z-index: 1050;
+      padding: 14px 0;
+    }
+    .admin-brand {
+      font-family: var(--font-alt);
+      font-weight: 700;
+      font-size: 1.25rem;
+      color: var(--text-primary);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .admin-badge {
+      background: var(--gradient-1);
+      color: #fff;
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      padding: 3px 8px;
+      border-radius: 6px;
+      font-weight: 700;
+    }
+
+    /* Buttons */
+    .btn-glow-primary {
+      background: var(--gradient-1);
+      color: #fff;
+      border: none;
+      padding: 8px 18px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.88rem;
+      transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      text-decoration: none;
+    }
+    .btn-glow-primary:hover {
+      box-shadow: 0 0 20px rgba(124, 58, 237, 0.45);
+      color: #fff;
+      transform: translateY(-2px);
+    }
+    .btn-outline-custom {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--glass-border);
+      color: var(--text-primary);
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-weight: 500;
+      font-size: 0.88rem;
+      transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      text-decoration: none;
+    }
+    .btn-outline-custom:hover {
+      background: rgba(124, 58, 237, 0.15);
+      border-color: var(--primary-light);
+      color: #fff;
+    }
+
+    /* Sidebar Navigation Tabs */
+    .admin-nav-tabs {
+      background: var(--dark-card);
+      border: 1px solid var(--dark-card-border);
+      border-radius: var(--border-radius);
+      padding: 12px;
+      position: sticky;
+      top: 90px;
+    }
+    .admin-tab-btn {
+      width: 100%;
+      text-align: left;
+      padding: 10px 14px;
+      background: transparent;
+      border: none;
+      border-radius: 8px;
+      color: var(--text-secondary);
+      font-weight: 500;
+      font-size: 0.92rem;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 4px;
+      transition: all 0.25s ease;
+      cursor: pointer;
+    }
+    .admin-tab-btn i {
+      width: 20px;
+      text-align: center;
+      color: var(--primary-light);
+    }
+    .admin-tab-btn:hover {
+      background: rgba(124, 58, 237, 0.1);
+      color: var(--text-primary);
+    }
+    .admin-tab-btn.active {
+      background: var(--gradient-1);
+      color: #fff;
+    }
+    .admin-tab-btn.active i {
+      color: #fff;
+    }
+
+    /* Section Cards */
+    .admin-section-card {
+      background: var(--dark-card);
+      border: 1px solid var(--dark-card-border);
+      border-radius: var(--border-radius);
+      padding: 28px;
+      margin-bottom: 24px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    }
+    .section-card-title {
+      font-family: var(--font-alt);
+      font-weight: 700;
+      font-size: 1.25rem;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--text-primary);
+    }
+    .section-card-desc {
+      color: var(--text-secondary);
+      font-size: 0.85rem;
+      margin-bottom: 24px;
+    }
+
+    /* Form Inputs */
+    .form-group-admin {
+      margin-bottom: 18px;
+    }
+    .admin-label {
+      display: block;
+      font-size: 0.82rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--text-secondary);
+      margin-bottom: 6px;
+    }
+    .admin-input, .admin-textarea {
+      width: 100%;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--glass-border);
+      border-radius: 8px;
+      padding: 10px 14px;
+      color: var(--text-primary);
+      font-family: var(--font-main);
+      font-size: 0.92rem;
+      transition: all 0.25s ease;
+    }
+    .admin-input:focus, .admin-textarea:focus {
+      outline: none;
+      border-color: var(--primary-light);
+      background: rgba(124, 58, 237, 0.06);
+      box-shadow: 0 0 12px rgba(124, 58, 237, 0.25);
+    }
+    .help-hint {
+      font-size: 0.76rem;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+
+    /* Toast Notification */
+    .toast-container {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 2000;
+    }
+    .admin-toast {
+      background: rgba(14, 16, 35, 0.95);
+      border: 1px solid rgba(16, 185, 129, 0.4);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+      border-radius: 10px;
+      padding: 14px 20px;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      transform: translateY(100px);
+      opacity: 0;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .admin-toast.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    .badge-tag {
+      background: rgba(6, 182, 212, 0.15);
+      border: 1px solid rgba(6, 182, 212, 0.3);
+      color: var(--secondary);
+      font-size: 0.75rem;
+      padding: 3px 8px;
+      border-radius: 6px;
+      display: inline-block;
+      margin-right: 4px;
+      margin-bottom: 4px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Top Bar -->
+  <nav class="admin-navbar">
+    <div class="container-fluid px-lg-5">
+      <div class="d-flex justify-content-between align-items-center">
+        <a href="index.html" class="admin-brand">
+          <span style="color:var(--primary);">&lt;</span>Harsh<span style="color:var(--primary);">/&gt;</span>
+          <span>Portfolio Editor</span>
+          <span class="admin-badge">Admin UI</span>
+        </a>
+        <div class="d-flex align-items-center gap-2">
+          <a href="index.html" target="_blank" class="btn btn-outline-custom">
+            <i class="fas fa-external-link-alt"></i> View Live Site
+          </a>
+          <button id="saveChangesBtn" class="btn btn-glow-primary">
+            <i class="fas fa-save"></i> Save Changes
+          </button>
+          <button id="exportHtmlBtn" class="btn btn-outline-custom">
+            <i class="fas fa-download"></i> Export Updated HTML
+          </button>
+          <button id="resetDefaultsBtn" class="btn btn-outline-custom text-danger">
+            <i class="fas fa-undo"></i> Reset
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <div class="container-fluid px-lg-5 py-4">
+    <div class="row g-4">
+
+      <!-- Left Sidebar Tabs -->
+      <div class="col-lg-3 col-md-4">
+        <div class="admin-nav-tabs">
+          <button class="admin-tab-btn active" data-target="tab-hero">
+            <i class="fas fa-home"></i> Hero Section
+          </button>
+          <button class="admin-tab-btn" data-target="tab-about">
+            <i class="fas fa-user"></i> About Me
+          </button>
+          <button class="admin-tab-btn" data-target="tab-services">
+            <i class="fas fa-store"></i> Services &amp; Pricing
+          </button>
+          <button class="admin-tab-btn" data-target="tab-projects">
+            <i class="fas fa-layer-group"></i> Projects Manager
+          </button>
+          <button class="admin-tab-btn" data-target="tab-achievements">
+            <i class="fas fa-trophy"></i> Achievements
+          </button>
+          <button class="admin-tab-btn" data-target="tab-experience">
+            <i class="fas fa-briefcase"></i> Experience
+          </button>
+          <button class="admin-tab-btn" data-target="tab-contact">
+            <i class="fas fa-phone"></i> Contact &amp; Social
+          </button>
+          <button class="admin-tab-btn" data-target="tab-seo">
+            <i class="fas fa-globe"></i> SEO &amp; Meta Tags
+          </button>
+        </div>
+      </div>
+
+      <!-- Right Content Panels -->
+      <div class="col-lg-9 col-md-8">
+
+        <!-- ===== TAB: HERO SECTION ===== -->
+        <div class="tab-pane active" id="tab-hero">
+          <div class="admin-section-card">
+            <h3 class="section-card-title"><i class="fas fa-home text-primary"></i> Hero Section</h3>
+            <p class="section-card-desc">Edit your introduction, typing text phrases, supporting text, and stat counters.</p>
+
+            <div class="row g-3">
+              <div class="col-md-6 form-group-admin">
+                <label class="admin-label">Greeting</label>
+                <input type="text" id="heroGreeting" class="admin-input" value="👋 Hello, World!" />
+              </div>
+              <div class="col-md-6 form-group-admin">
+                <label class="admin-label">Your Name</label>
+                <input type="text" id="heroName" class="admin-input" value="Harsh" />
+              </div>
+
+              <div class="col-12 form-group-admin">
+                <label class="admin-label">Hero Pitch &amp; Description</label>
+                <textarea id="heroDescription" class="admin-textarea" rows="4">I build custom e-commerce and business websites for small businesses, blending modern UI/UX design with high-converting user experiences. My expertise spans Full Stack Development, custom online store architecture, responsive web apps, and AI integration. I help businesses establish a standout online presence through fast, clean, and reliable solutions.</textarea>
+                <div class="help-hint">Make it client-focused and emphasize custom e-commerce and small business websites.</div>
+              </div>
+
+              <div class="col-12 form-group-admin">
+                <label class="admin-label">Typing Animation Phrases (comma separated)</label>
+                <input type="text" id="typingPhrases" class="admin-input" value="Freelance Web Developer, Full Stack Developer, E-Commerce Specialist, UI/UX Designer, AI Creative Developer, Problem Solver" />
+                <div class="help-hint">These phrases cycle continuously in the typewriter effect.</div>
+              </div>
+
+              <div class="col-md-3 form-group-admin">
+                <label class="admin-label">Projects Count</label>
+                <input type="number" id="statProjects" class="admin-input" value="10" />
+              </div>
+              <div class="col-md-3 form-group-admin">
+                <label class="admin-label">Months Internship</label>
+                <input type="number" id="statInternship" class="admin-input" value="5" />
+              </div>
+              <div class="col-md-3 form-group-admin">
+                <label class="admin-label">Technologies Count</label>
+                <input type="number" id="statTech" class="admin-input" value="15" />
+              </div>
+              <div class="col-md-3 form-group-admin">
+                <label class="admin-label">Months as Prompt Eng.</label>
+                <input type="number" id="statMonthsPromptEng" class="admin-input" value="3" />
+                <div class="help-hint">Accurate past experience (Feb 2026 – May 2026).</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ===== TAB: ABOUT SECTION ===== -->
+        <div class="tab-pane d-none" id="tab-about">
+          <div class="admin-section-card">
+            <h3 class="section-card-title"><i class="fas fa-user text-primary"></i> About Section</h3>
+            <p class="section-card-desc">Update your bio paragraphs, past FYD Studio experience, education, and credentials.</p>
+
+            <div class="form-group-admin">
+              <label class="admin-label">Heading</label>
+              <input type="text" id="aboutHeading" class="admin-input" value="Freelance Web Developer &amp; E-Commerce Specialist" />
+            </div>
+
+            <div class="form-group-admin">
+              <label class="admin-label">Paragraph 1 (Introduction &amp; Education)</label>
+              <textarea id="aboutPara1" class="admin-textarea" rows="3">I'm a Freelance Web Developer and MSc IT student passionate about building high-converting digital products, modern e-commerce stores, and intelligent web applications. I completed my Bachelor of Computer Applications (BCA) from Ganpat University and am pursuing my Master's in Information Technology at Silver Oak University.</textarea>
+            </div>
+
+            <div class="form-group-admin">
+              <label class="admin-label">Paragraph 2 (Past FYD Studio &amp; Freelance Focus)</label>
+              <textarea id="aboutPara2" class="admin-textarea" rows="3">I previously worked as a Prompt Engineer at FYD Studio, creating AI image and video content for clients, while also gaining hands-on experience as a Full Stack Developer through my internship at Upeya Electronics. Today, I build custom e-commerce and business websites for small businesses, delivering tailor-made online platforms that convert visitors into customers.</textarea>
+            </div>
+
+            <div class="form-group-admin">
+              <label class="admin-label">Paragraph 3 (Problem Solving &amp; Goal)</label>
+              <textarea id="aboutPara3" class="admin-textarea" rows="3">I enjoy solving real-world problems through technology, whether it's developing complete online shopping experiences, responsive business websites, autonomous delivery systems, or commercial digital content. My goal is to create scalable, user-friendly solutions that deliver both aesthetic excellence and tangible business growth.</textarea>
+            </div>
+          </div>
+        </div>
+
+        <!-- ===== TAB: SERVICES SECTION ===== -->
+        <div class="tab-pane d-none" id="tab-services">
+          <div class="admin-section-card">
+            <h3 class="section-card-title"><i class="fas fa-store text-primary"></i> Services &amp; Pricing</h3>
+            <p class="section-card-desc">Configure your e-commerce package pricing, delivery times, revisions, and launch offers.</p>
+
+            <div class="row g-4">
+              <div class="col-md-6">
+                <div class="p-3 rounded" style="background:rgba(255,255,255,0.03); border:1px solid var(--glass-border);">
+                  <h5 class="text-info mb-3"><i class="fas fa-tag me-2"></i>Basic E-Commerce Plan</h5>
+                  <div class="form-group-admin">
+                    <label class="admin-label">Price (e.g. 25,000 or Rs. 25,000)</label>
+                    <input type="text" id="serviceBasicPrice" class="admin-input" placeholder="25,000" value="25,000" />
+                  </div>
+                  <div class="form-group-admin">
+                    <label class="admin-label">Tagline</label>
+                    <input type="text" id="serviceBasicSubtitle" class="admin-input" value="Perfect for businesses starting online." />
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="p-3 rounded" style="background:rgba(124,58,237,0.05); border:1px solid rgba(124,58,237,0.3);">
+                  <h5 class="text-warning mb-3"><i class="fas fa-crown me-2"></i>Complete E-Commerce Plan (Recommended)</h5>
+                  <div class="form-group-admin">
+                    <label class="admin-label">Price (e.g. 36,000 or Rs. 36,000)</label>
+                    <input type="text" id="serviceCompletePrice" class="admin-input" placeholder="36,000" value="36,000" />
+                  </div>
+                  <div class="form-group-admin">
+                    <label class="admin-label">Tagline</label>
+                    <input type="text" id="serviceCompleteSubtitle" class="admin-input" value="For a complete online shopping experience." />
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-6 form-group-admin">
+                <label class="admin-label">Typical Delivery Time</label>
+                <input type="text" id="serviceDeliveryTime" class="admin-input" placeholder="3 to 5 weeks" value="3 to 5 weeks" />
+              </div>
+
+              <div class="col-md-6 form-group-admin">
+                <label class="admin-label">Revision Rounds Included</label>
+                <input type="text" id="serviceRevisionCount" class="admin-input" placeholder="2 rounds" value="2 rounds" />
+              </div>
+
+              <div class="col-12 form-group-admin">
+                <label class="admin-label">Launch Offer Badge Text (Optional)</label>
+                <input type="text" id="serviceLaunchOffer" class="admin-input" placeholder="e.g. 15% off for first 5 clients this month!" value="" />
+                <div class="help-hint">Leave empty if no promotional launch offer is active right now.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ===== TAB: PROJECTS MANAGER ===== -->
+        <div class="tab-pane d-none" id="tab-projects">
+          <div class="admin-section-card">
+            <h3 class="section-card-title"><i class="fas fa-layer-group text-primary"></i> Projects Manager</h3>
+            <p class="section-card-desc">Configure URLs, GitHub repositories, and live demo links for all your portfolio projects.</p>
+
+            <div class="row g-3">
+              <div class="col-12 p-3 rounded mb-2" style="background:rgba(255,255,255,0.02); border:1px solid var(--glass-border);">
+                <h6 class="text-success mb-2"><i class="fas fa-shopping-bag me-2"></i>Live Demo Store (E-Commerce)</h6>
+                <div class="row g-2">
+                  <div class="col-md-6">
+                    <label class="admin-label">Live Demo Store URL</label>
+                    <input type="url" id="projDemoStoreUrl" class="admin-input" placeholder="https://yourdemostore.netlify.app" value="" />
+                  </div>
+                  <div class="col-md-6">
+                    <label class="admin-label">GitHub Repo URL (Optional)</label>
+                    <input type="url" id="projDemoStoreGithub" class="admin-input" placeholder="https://github.com/harshpdcode/..." value="" />
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-12 p-3 rounded mb-2" style="background:rgba(255,255,255,0.02); border:1px solid var(--glass-border);">
+                <h6 class="text-info mb-2"><i class="fas fa-birthday-cake me-2"></i>Birthday Celebration Website</h6>
+                <div class="row g-2">
+                  <div class="col-md-6">
+                    <label class="admin-label">Live Demo 1 URL</label>
+                    <input type="url" id="projBdayUrl1" class="admin-input" value="https://happy-birthday-khushbuu.netlify.app/" />
+                  </div>
+                  <div class="col-md-6">
+                    <label class="admin-label">Live Demo 2 URL</label>
+                    <input type="url" id="projBdayUrl2" class="admin-input" value="https://happybirthday-mahek.netlify.app/" />
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-12 p-3 rounded mb-2" style="background:rgba(255,255,255,0.02); border:1px solid var(--glass-border);">
+                <h6 class="text-warning mb-2"><i class="fas fa-store me-2"></i>Online Perfume Store</h6>
+                <div class="col-12">
+                  <label class="admin-label">GitHub Repository URL</label>
+                  <input type="url" id="projPerfumeGithub" class="admin-input" value="https://github.com/harshpdcode/aura-sovereign-parfums.git" />
+                </div>
+              </div>
+
+              <div class="col-12 p-3 rounded mb-2" style="background:rgba(255,255,255,0.02); border:1px solid var(--glass-border);">
+                <h6 class="text-primary-light mb-2"><i class="fas fa-chart-line me-2"></i>StockAware</h6>
+                <div class="col-12">
+                  <label class="admin-label">Prototype Link (Optional)</label>
+                  <input type="url" id="projStockAwareUrl" class="admin-input" placeholder="https://..." value="" />
+                </div>
+              </div>
+
+              <div class="col-12 p-3 rounded" style="background:rgba(255,255,255,0.02); border:1px solid var(--glass-border);">
+                <h6 class="text-secondary mb-2"><i class="fas fa-university me-2"></i>University Website</h6>
+                <div class="col-12">
+                  <label class="admin-label">GitHub Repository URL</label>
+                  <input type="url" id="projUniversityGithub" class="admin-input" placeholder="https://github.com/harshpdcode/..." value="" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ===== TAB: ACHIEVEMENTS ===== -->
+        <div class="tab-pane d-none" id="tab-achievements">
+          <div class="admin-section-card">
+            <h3 class="section-card-title"><i class="fas fa-trophy text-primary"></i> Achievements &amp; Awards</h3>
+            <p class="section-card-desc">Update your competition placements, Ideathon details, and certifications.</p>
+
+            <div class="row g-3">
+              <div class="col-12 p-3 rounded" style="background:rgba(255,255,255,0.02); border:1px solid var(--glass-border);">
+                <h6 class="text-warning mb-2"><i class="fas fa-medal me-2"></i>3rd Place, Ideathon</h6>
+                <div class="row g-2">
+                  <div class="col-md-6">
+                    <label class="admin-label">Event Name</label>
+                    <input type="text" id="achieveIdeathonName" class="admin-input" value="Ideathon" placeholder="Specific Ideathon name..." />
+                  </div>
+                  <div class="col-md-6">
+                    <label class="admin-label">Institution &amp; Year</label>
+                    <input type="text" id="achieveIdeathonUni" class="admin-input" value="Silver Oak University, 2026" />
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-6 form-group-admin">
+                <label class="admin-label">1st Place Event</label>
+                <input type="text" class="admin-input" value="Avishkar Event, Silver Oak University" readonly style="opacity:0.7;" />
+              </div>
+              <div class="col-md-6 form-group-admin">
+                <label class="admin-label">Stats Card Note</label>
+                <input type="text" id="achieveStatsCard" class="admin-input" value="5 Months Internship • Former Prompt Engineer at FYD Studio" />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ===== TAB: EXPERIENCE ===== -->
+        <div class="tab-pane d-none" id="tab-experience">
+          <div class="admin-section-card">
+            <h3 class="section-card-title"><i class="fas fa-briefcase text-primary"></i> Experience &amp; Education</h3>
+            <p class="section-card-desc">Maintain accurate timeline records for FYD Studio, Upeya Electronics, and degree programs.</p>
+
+            <div class="p-3 rounded mb-3" style="background:rgba(255,255,255,0.02); border:1px solid var(--glass-border);">
+              <h6 class="text-info mb-2"><i class="fas fa-building me-2"></i>FYD Studio (Past Role)</h6>
+              <div class="row g-2">
+                <div class="col-md-6">
+                  <label class="admin-label">Job Title</label>
+                  <input type="text" id="expFydTitle" class="admin-input" value="Prompt Engineer – Image &amp; Video Generation" />
+                </div>
+                <div class="col-md-6">
+                  <label class="admin-label">Dates (Past)</label>
+                  <input type="text" id="expFydDates" class="admin-input" value="February 2026 – May 2026" />
+                </div>
+                <div class="col-12 mt-2">
+                  <label class="admin-label">Description (Past Tense)</label>
+                  <textarea id="expFydDesc" class="admin-textarea" rows="3">Worked as a Prompt Engineer specializing in AI-powered image and video generation. Designed advanced prompts, produced commercial AI advertisements, maintained character consistency, optimized creative workflows, and collaborated with creative teams to deliver high-quality visual content using cutting-edge generative AI tools.</textarea>
+                </div>
+              </div>
+            </div>
+
+            <div class="p-3 rounded" style="background:rgba(255,255,255,0.02); border:1px solid var(--glass-border);">
+              <h6 class="text-primary-light mb-2"><i class="fas fa-university me-2"></i>Master of Science in IT (MSc IT)</h6>
+              <div class="row g-2">
+                <div class="col-md-6">
+                  <label class="admin-label">University</label>
+                  <input type="text" class="admin-input" value="Silver Oak University" />
+                </div>
+                <div class="col-md-6">
+                  <label class="admin-label">Years</label>
+                  <input type="text" class="admin-input" value="2025 – Present" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ===== TAB: CONTACT ===== -->
+        <div class="tab-pane d-none" id="tab-contact">
+          <div class="admin-section-card">
+            <h3 class="section-card-title"><i class="fas fa-phone text-primary"></i> Contact &amp; Social Links</h3>
+            <p class="section-card-desc">Set up your WhatsApp floating button, email, phone number, and social profiles.</p>
+
+            <div class="row g-3">
+              <div class="col-md-6 form-group-admin">
+                <label class="admin-label">WhatsApp Number (with country code, digits only)</label>
+                <input type="text" id="contactWhatsApp" class="admin-input" placeholder="919825695565" value="919825695565" />
+                <div class="help-hint">Used for the floating button and "Get This Plan" buttons.</div>
+              </div>
+
+              <div class="col-md-6 form-group-admin">
+                <label class="admin-label">Phone Display</label>
+                <input type="text" id="contactPhone" class="admin-input" value="+91 98256 95565" />
+              </div>
+
+              <div class="col-md-6 form-group-admin">
+                <label class="admin-label">Email Address</label>
+                <input type="email" id="contactEmail" class="admin-input" value="pandyaharsh528@gmail.com" />
+              </div>
+
+              <div class="col-md-6 form-group-admin">
+                <label class="admin-label">Location</label>
+                <input type="text" id="contactLocation" class="admin-input" value="Ahmedabad, Gujarat, India" />
+              </div>
+
+              <div class="col-md-6 form-group-admin">
+                <label class="admin-label">Instagram Profile URL (Optional)</label>
+                <input type="url" id="contactInstagram" class="admin-input" placeholder="https://instagram.com/yourhandle" value="" />
+                <div class="help-hint">If provided, the Instagram icon becomes visible and clickable.</div>
+              </div>
+
+              <div class="col-md-6 form-group-admin">
+                <label class="admin-label">GitHub Profile</label>
+                <input type="url" id="contactGithub" class="admin-input" value="https://github.com/harshpdcode" />
+              </div>
+
+              <div class="col-md-6 form-group-admin">
+                <label class="admin-label">LinkedIn Profile</label>
+                <input type="url" id="contactLinkedin" class="admin-input" value="https://www.linkedin.com/in/harsh-pandya-24ab132b8" />
+              </div>
+
+              <div class="col-md-6 form-group-admin">
+                <label class="admin-label">Availability Status</label>
+                <input type="text" id="contactAvailability" class="admin-input" value="Available for Freelance Projects" />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ===== TAB: SEO ===== -->
+        <div class="tab-pane d-none" id="tab-seo">
+          <div class="admin-section-card">
+            <h3 class="section-card-title"><i class="fas fa-globe text-primary"></i> SEO &amp; Open Graph Meta</h3>
+            <p class="section-card-desc">Optimize how your portfolio appears in Google search and social media link previews.</p>
+
+            <div class="form-group-admin">
+              <label class="admin-label">Page Title</label>
+              <input type="text" id="seoTitle" class="admin-input" value="Harsh Pandya | Freelance Web Developer, Ahmedabad | E-Commerce &amp; Custom Websites" />
+            </div>
+
+            <div class="form-group-admin">
+              <label class="admin-label">Meta Description</label>
+              <textarea id="seoDescription" class="admin-textarea" rows="2">Freelance Web Developer in Ahmedabad specializing in custom e-commerce and business websites for small businesses. Explore Harsh Pandya's portfolio, services, projects, and web development solutions.</textarea>
+            </div>
+
+            <div class="row g-3">
+              <div class="col-md-6 form-group-admin">
+                <label class="admin-label">Portfolio Canonical URL</label>
+                <input type="url" id="seoPortfolioUrl" class="admin-input" placeholder="https://harshpandya.netlify.app" value="" />
+              </div>
+              <div class="col-md-6 form-group-admin">
+                <label class="admin-label">Social Preview Image URL</label>
+                <input type="url" id="seoPreviewImage" class="admin-input" placeholder="https://harshpandya.netlify.app/preview.jpg" value="" />
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div class="toast-container">
+    <div id="adminToast" class="admin-toast">
+      <i class="fas fa-check-circle text-success fs-5"></i>
+      <div id="toastMessage">Changes saved successfully!</div>
+    </div>
+  </div>
+
+  <!-- Admin Script -->
+  <script>
+    // Tab Switching
+    document.querySelectorAll('.admin-tab-btn').forEach(btn => {
+      btn.addEventListener('click', function () {
+        document.querySelectorAll('.admin-tab-btn').forEach(b => b.classList.remove('active'));
+        document.querySelectorAll('.tab-pane').forEach(p => p.classList.add('d-none'));
+
+        this.classList.add('active');
+        const targetId = this.getAttribute('data-target');
+        const targetPane = document.getElementById(targetId);
+        if (targetPane) targetPane.classList.remove('d-none');
+      });
+    });
+
+    // Storage Key
+    const STORAGE_KEY = 'harsh_portfolio_data';
+
+    // Show Toast
+    function showToast(msg) {
+      const toast = document.getElementById('adminToast');
+      document.getElementById('toastMessage').textContent = msg;
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 3500);
+    }
+
+    // Load Data
+    function loadSavedData() {
+      try {
+        const raw = localStorage.getItem(STORAGE_KEY);
+        if (!raw) return;
+        const d = JSON.parse(raw);
+
+        if (d.heroGreeting) document.getElementById('heroGreeting').value = d.heroGreeting;
+        if (d.heroName) document.getElementById('heroName').value = d.heroName;
+        if (d.heroDescription) document.getElementById('heroDescription').value = d.heroDescription;
+        if (d.typingPhrases) document.getElementById('typingPhrases').value = d.typingPhrases;
+        if (d.statProjects) document.getElementById('statProjects').value = d.statProjects;
+        if (d.statInternship) document.getElementById('statInternship').value = d.statInternship;
+        if (d.statTech) document.getElementById('statTech').value = d.statTech;
+        if (d.statMonthsPromptEng) document.getElementById('statMonthsPromptEng').value = d.statMonthsPromptEng;
+
+        if (d.aboutHeading) document.getElementById('aboutHeading').value = d.aboutHeading;
+        if (d.aboutPara1) document.getElementById('aboutPara1').value = d.aboutPara1;
+        if (d.aboutPara2) document.getElementById('aboutPara2').value = d.aboutPara2;
+        if (d.aboutPara3) document.getElementById('aboutPara3').value = d.aboutPara3;
+
+        if (d.basicPrice) document.getElementById('serviceBasicPrice').value = d.basicPrice;
+        if (d.basicSubtitle) document.getElementById('serviceBasicSubtitle').value = d.basicSubtitle;
+        if (d.completePrice) document.getElementById('serviceCompletePrice').value = d.completePrice;
+        if (d.completeSubtitle) document.getElementById('serviceCompleteSubtitle').value = d.completeSubtitle;
+        if (d.deliveryTime) document.getElementById('serviceDeliveryTime').value = d.deliveryTime;
+        if (d.revisionCount) document.getElementById('serviceRevisionCount').value = d.revisionCount;
+        if (d.launchOffer) document.getElementById('serviceLaunchOffer').value = d.launchOffer;
+
+        if (d.demoStoreUrl) document.getElementById('projDemoStoreUrl').value = d.demoStoreUrl;
+        if (d.demoStoreGithub) document.getElementById('projDemoStoreGithub').value = d.demoStoreGithub;
+        if (d.bdayUrl1) document.getElementById('projBdayUrl1').value = d.bdayUrl1;
+        if (d.bdayUrl2) document.getElementById('projBdayUrl2').value = d.bdayUrl2;
+        if (d.perfumeGithub) document.getElementById('projPerfumeGithub').value = d.perfumeGithub;
+        if (d.stockAwareUrl) document.getElementById('projStockAwareUrl').value = d.stockAwareUrl;
+        if (d.universityGithub) document.getElementById('projUniversityGithub').value = d.universityGithub;
+
+        if (d.whatsappNumber) document.getElementById('contactWhatsApp').value = d.whatsappNumber;
+        if (d.phone) document.getElementById('contactPhone').value = d.phone;
+        if (d.email) document.getElementById('contactEmail').value = d.email;
+        if (d.location) document.getElementById('contactLocation').value = d.location;
+        if (d.instagramUrl) document.getElementById('contactInstagram').value = d.instagramUrl;
+        if (d.github) document.getElementById('contactGithub').value = d.github;
+        if (d.linkedin) document.getElementById('contactLinkedin').value = d.linkedin;
+        if (d.availability) document.getElementById('contactAvailability').value = d.availability;
+
+        if (d.seoTitle) document.getElementById('seoTitle').value = d.seoTitle;
+        if (d.seoDescription) document.getElementById('seoDescription').value = d.seoDescription;
+        if (d.portfolioUrl) document.getElementById('seoPortfolioUrl').value = d.portfolioUrl;
+        if (d.previewImage) document.getElementById('seoPreviewImage').value = d.previewImage;
+      } catch (err) {
+        console.error('Error loading data:', err);
+      }
+    }
+
+    // Save Data
+    function saveData() {
+      const d = {
+        heroGreeting: document.getElementById('heroGreeting').value,
+        heroName: document.getElementById('heroName').value,
+        heroDescription: document.getElementById('heroDescription').value,
+        typingPhrases: document.getElementById('typingPhrases').value,
+        statProjects: document.getElementById('statProjects').value,
+        statInternship: document.getElementById('statInternship').value,
+        statTech: document.getElementById('statTech').value,
+        monthsPromptEng: document.getElementById('statMonthsPromptEng').value,
+
+        aboutHeading: document.getElementById('aboutHeading').value,
+        aboutPara1: document.getElementById('aboutPara1').value,
+        aboutPara2: document.getElementById('aboutPara2').value,
+        aboutPara3: document.getElementById('aboutPara3').value,
+
+        basicPrice: document.getElementById('serviceBasicPrice').value,
+        basicSubtitle: document.getElementById('serviceBasicSubtitle').value,
+        completePrice: document.getElementById('serviceCompletePrice').value,
+        completeSubtitle: document.getElementById('serviceCompleteSubtitle').value,
+        deliveryTime: document.getElementById('serviceDeliveryTime').value,
+        revisionCount: document.getElementById('serviceRevisionCount').value,
+        launchOffer: document.getElementById('serviceLaunchOffer').value,
+
+        demoStoreUrl: document.getElementById('projDemoStoreUrl').value,
+        demoStoreGithub: document.getElementById('projDemoStoreGithub').value,
+        bdayUrl1: document.getElementById('projBdayUrl1').value,
+        bdayUrl2: document.getElementById('projBdayUrl2').value,
+        perfumeGithub: document.getElementById('projPerfumeGithub').value,
+        stockAwareUrl: document.getElementById('projStockAwareUrl').value,
+        universityGithub: document.getElementById('projUniversityGithub').value,
+
+        whatsappNumber: document.getElementById('contactWhatsApp').value,
+        phone: document.getElementById('contactPhone').value,
+        email: document.getElementById('contactEmail').value,
+        location: document.getElementById('contactLocation').value,
+        instagramUrl: document.getElementById('contactInstagram').value,
+        github: document.getElementById('contactGithub').value,
+        linkedin: document.getElementById('contactLinkedin').value,
+        availability: document.getElementById('contactAvailability').value,
+
+        seoTitle: document.getElementById('seoTitle').value,
+        seoDescription: document.getElementById('seoDescription').value,
+        portfolioUrl: document.getElementById('seoPortfolioUrl').value,
+        previewImage: document.getElementById('seoPreviewImage').value,
+      };
+
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(d));
+      showToast('Changes saved! Open your live site to see your updates.');
+    }
+
+    document.getElementById('saveChangesBtn').addEventListener('click', saveData);
+
+    // Reset Defaults
+    document.getElementById('resetDefaultsBtn').addEventListener('click', function () {
+      if (confirm('Are you sure you want to reset all customizations to default?')) {
+        localStorage.removeItem(STORAGE_KEY);
+        location.reload();
+      }
+    });
+
+    // Export Updated HTML
+    document.getElementById('exportHtmlBtn').addEventListener('click', function () {
+      saveData();
+      fetch('index.html')
+        .then(res => res.text())
+        .then(html => {
+          let updated = html;
+          const basicPrice = document.getElementById('serviceBasicPrice').value;
+          const completePrice = document.getElementById('serviceCompletePrice').value;
+          const heroDesc = document.getElementById('heroDescription').value;
+          const waNum = document.getElementById('contactWhatsApp').value.replace(/[^0-9]/g, '');
+
+          if (basicPrice) {
+            updated = updated.replace(/service-basic-price">[^<]*</g, `service-basic-price">${basicPrice}<`);
+          }
+          if (completePrice) {
+            updated = updated.replace(/service-complete-price">[^<]*</g, `service-complete-price">${completePrice}<`);
+          }
+
+          // Trigger download
+          const blob = new Blob([updated], { type: 'text/html;charset=utf-8' });
+          const url = URL.createObjectURL(blob);
+          const a = document.createElement('a');
+          a.href = url;
+          a.download = 'index.html';
+          document.body.appendChild(a);
+          a.click();
+          document.body.removeChild(a);
+          URL.revokeObjectURL(url);
+          showToast('Updated index.html downloaded successfully!');
+        })
+        .catch(err => {
+          console.error(err);
+          alert('Could not automatically export file. Saved to browser storage instead.');
+        });
+    });
+
+    // Initialize
+    loadSavedData();
+  </script>
+</body>
+
+</html>
