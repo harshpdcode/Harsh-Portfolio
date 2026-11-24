@@ -334,29 +334,20 @@
         <div class="tab-pane active" id="tab-hero">
           <div class="admin-section-card">
             <h3 class="section-card-title"><i class="fas fa-home text-primary"></i> Hero Section</h3>
-            <p class="section-card-desc">Edit your introduction, typing text phrases, supporting text, and stat counters.</p>
+            <p class="section-card-desc">Edit your introduction and portfolio stats. Saved previews appear only in this browser.</p>
 
             <div class="row g-3">
               <div class="col-md-6 form-group-admin">
-                <label class="admin-label">Greeting</label>
-                <input type="text" id="heroGreeting" class="admin-input" value="👋 Hello, World!" />
-              </div>
-              <div class="col-md-6 form-group-admin">
                 <label class="admin-label">Your Name</label>
-                <input type="text" id="heroName" class="admin-input" value="Harsh" />
+                <input type="text" id="heroName" class="admin-input" value="Harsh Pandya" />
               </div>
 
               <div class="col-12 form-group-admin">
                 <label class="admin-label">Hero Pitch &amp; Description</label>
-                <textarea id="heroDescription" class="admin-textarea" rows="4">I build custom e-commerce and business websites for small businesses, blending modern UI/UX design with high-converting user experiences. My expertise spans Full Stack Development, custom online store architecture, responsive web apps, and AI integration. I help businesses establish a standout online presence through fast, clean, and reliable solutions.</textarea>
+                <textarea id="heroDescription" class="admin-textarea" rows="4">I build custom online stores and web apps for small businesses, and explore what generative AI can bring to software and visual storytelling.</textarea>
                 <div class="help-hint">Make it client-focused and emphasize custom e-commerce and small business websites.</div>
               </div>
 
-              <div class="col-12 form-group-admin">
-                <label class="admin-label">Typing Animation Phrases (comma separated)</label>
-                <input type="text" id="typingPhrases" class="admin-input" value="Freelance Web Developer, Full Stack Developer, E-Commerce Specialist, UI/UX Designer, AI Creative Developer, Problem Solver" />
-                <div class="help-hint">These phrases cycle continuously in the typewriter effect.</div>
-              </div>
 
               <div class="col-md-3 form-group-admin">
                 <label class="admin-label">Projects Count</label>
@@ -411,52 +402,47 @@
         <div class="tab-pane d-none" id="tab-services">
           <div class="admin-section-card">
             <h3 class="section-card-title"><i class="fas fa-store text-primary"></i> Services &amp; Pricing</h3>
-            <p class="section-card-desc">Configure your e-commerce package pricing, delivery times, revisions, and launch offers.</p>
+            <p class="section-card-desc">Package prices are fixed. Edit the supporting copy and add delivery or revision details when confirmed.</p>
 
             <div class="row g-4">
               <div class="col-md-6">
                 <div class="p-3 rounded" style="background:rgba(255,255,255,0.03); border:1px solid var(--glass-border);">
-                  <h5 class="text-info mb-3"><i class="fas fa-tag me-2"></i>Basic E-Commerce Plan</h5>
+                  <h5 class="text-info mb-3"><i class="fas fa-tag me-2"></i>Basic Package</h5>
                   <div class="form-group-admin">
-                    <label class="admin-label">Price (e.g. 25,000 or Rs. 25,000)</label>
-                    <input type="text" id="serviceBasicPrice" class="admin-input" placeholder="25,000" value="25,000" />
+                    <label class="admin-label" for="serviceBasicPrice">Fixed price</label>
+                    <input type="text" id="serviceBasicPrice" class="admin-input" value="₹25,000" readonly />
                   </div>
                   <div class="form-group-admin">
                     <label class="admin-label">Tagline</label>
-                    <input type="text" id="serviceBasicSubtitle" class="admin-input" value="Perfect for businesses starting online." />
+                    <input type="text" id="serviceBasicSubtitle" class="admin-input" value="For businesses launching their first online store." />
                   </div>
                 </div>
               </div>
 
               <div class="col-md-6">
                 <div class="p-3 rounded" style="background:rgba(124,58,237,0.05); border:1px solid rgba(124,58,237,0.3);">
-                  <h5 class="text-warning mb-3"><i class="fas fa-crown me-2"></i>Complete E-Commerce Plan (Recommended)</h5>
+                  <h5 class="text-warning mb-3"><i class="fas fa-crown me-2"></i>Complete Package</h5>
                   <div class="form-group-admin">
-                    <label class="admin-label">Price (e.g. 36,000 or Rs. 36,000)</label>
-                    <input type="text" id="serviceCompletePrice" class="admin-input" placeholder="36,000" value="36,000" />
+                    <label class="admin-label" for="serviceCompletePrice">Fixed price</label>
+                    <input type="text" id="serviceCompletePrice" class="admin-input" value="₹35,000" readonly />
                   </div>
                   <div class="form-group-admin">
                     <label class="admin-label">Tagline</label>
-                    <input type="text" id="serviceCompleteSubtitle" class="admin-input" value="For a complete online shopping experience." />
+                    <input type="text" id="serviceCompleteSubtitle" class="admin-input" value="For stores that need more control over shopping and operations." />
                   </div>
                 </div>
               </div>
 
               <div class="col-md-6 form-group-admin">
                 <label class="admin-label">Typical Delivery Time</label>
-                <input type="text" id="serviceDeliveryTime" class="admin-input" placeholder="3 to 5 weeks" value="3 to 5 weeks" />
+                <input type="text" id="serviceDeliveryTime" class="admin-input" />
               </div>
 
               <div class="col-md-6 form-group-admin">
                 <label class="admin-label">Revision Rounds Included</label>
-                <input type="text" id="serviceRevisionCount" class="admin-input" placeholder="2 rounds" value="2 rounds" />
+                <input type="text" id="serviceRevisionCount" class="admin-input" />
               </div>
 
-              <div class="col-12 form-group-admin">
-                <label class="admin-label">Launch Offer Badge Text (Optional)</label>
-                <input type="text" id="serviceLaunchOffer" class="admin-input" placeholder="e.g. 15% off for first 5 clients this month!" value="" />
-                <div class="help-hint">Leave empty if no promotional launch offer is active right now.</div>
-              </div>
             </div>
           </div>
         </div>
@@ -527,7 +513,7 @@
         <div class="tab-pane d-none" id="tab-achievements">
           <div class="admin-section-card">
             <h3 class="section-card-title"><i class="fas fa-trophy text-primary"></i> Achievements &amp; Awards</h3>
-            <p class="section-card-desc">Update your competition placements, Ideathon details, and certifications.</p>
+            <p class="section-card-desc">Review your Avishkar awards and edit the Ideathon details.</p>
 
             <div class="row g-3">
               <div class="col-12 p-3 rounded" style="background:rgba(255,255,255,0.02); border:1px solid var(--glass-border);">
@@ -538,19 +524,19 @@
                     <input type="text" id="achieveIdeathonName" class="admin-input" value="Ideathon" placeholder="Specific Ideathon name..." />
                   </div>
                   <div class="col-md-6">
-                    <label class="admin-label">Institution &amp; Year</label>
-                    <input type="text" id="achieveIdeathonUni" class="admin-input" value="Silver Oak University, 2026" />
+                    <label class="admin-label">Institution</label>
+                    <input type="text" id="achieveIdeathonUni" class="admin-input" value="Silver Oak University" />
                   </div>
                 </div>
               </div>
 
               <div class="col-md-6 form-group-admin">
                 <label class="admin-label">1st Place Event</label>
-                <input type="text" class="admin-input" value="Avishkar Event, Silver Oak University" readonly style="opacity:0.7;" />
+                <input type="text" class="admin-input" value="Avishkar 2025" readonly style="opacity:0.7;" />
               </div>
               <div class="col-md-6 form-group-admin">
-                <label class="admin-label">Stats Card Note</label>
-                <input type="text" id="achieveStatsCard" class="admin-input" value="5 Months Internship • Former Prompt Engineer at FYD Studio" />
+                <label class="admin-label">1st Place Event</label>
+                <input type="text" class="admin-input" value="Avishkar 2026" readonly style="opacity:0.7;" />
               </div>
             </div>
           </div>
@@ -656,12 +642,12 @@
 
             <div class="form-group-admin">
               <label class="admin-label">Page Title</label>
-              <input type="text" id="seoTitle" class="admin-input" value="Harsh Pandya | Freelance Web Developer, Ahmedabad | E-Commerce &amp; Custom Websites" />
+              <input type="text" id="seoTitle" class="admin-input" value="Harsh Pandya — Full-Stack Developer &amp; GenAI Enthusiast" />
             </div>
 
             <div class="form-group-admin">
               <label class="admin-label">Meta Description</label>
-              <textarea id="seoDescription" class="admin-textarea" rows="2">Freelance Web Developer in Ahmedabad specializing in custom e-commerce and business websites for small businesses. Explore Harsh Pandya's portfolio, services, projects, and web development solutions.</textarea>
+              <textarea id="seoDescription" class="admin-textarea" rows="2">Harsh Pandya is a full-stack developer in Ahmedabad building custom e-commerce websites, web applications, and generative AI experiences.</textarea>
             </div>
 
             <div class="row g-3">
@@ -689,7 +675,7 @@
     </div>
   </div>
 
-  <!-- Admin Script -->
+  <script src="/portfolio-edits.js"></script>
   <script>
     // Tab Switching
     document.querySelectorAll('.admin-tab-btn').forEach(btn => {
@@ -705,7 +691,7 @@
     });
 
     // Storage Key
-    const STORAGE_KEY = 'harsh_portfolio_data';
+    const STORAGE_KEY = PortfolioEdits.storageKey;
 
     // Show Toast
     function showToast(msg) {
@@ -722,10 +708,8 @@
         if (!raw) return;
         const d = JSON.parse(raw);
 
-        if (d.heroGreeting) document.getElementById('heroGreeting').value = d.heroGreeting;
         if (d.heroName) document.getElementById('heroName').value = d.heroName;
         if (d.heroDescription) document.getElementById('heroDescription').value = d.heroDescription;
-        if (d.typingPhrases) document.getElementById('typingPhrases').value = d.typingPhrases;
         if (d.statProjects) document.getElementById('statProjects').value = d.statProjects;
         if (d.statInternship) document.getElementById('statInternship').value = d.statInternship;
         if (d.statTech) document.getElementById('statTech').value = d.statTech;
@@ -736,13 +720,12 @@
         if (d.aboutPara2) document.getElementById('aboutPara2').value = d.aboutPara2;
         if (d.aboutPara3) document.getElementById('aboutPara3').value = d.aboutPara3;
 
-        if (d.basicPrice) document.getElementById('serviceBasicPrice').value = d.basicPrice;
         if (d.basicSubtitle) document.getElementById('serviceBasicSubtitle').value = d.basicSubtitle;
-        if (d.completePrice) document.getElementById('serviceCompletePrice').value = d.completePrice;
         if (d.completeSubtitle) document.getElementById('serviceCompleteSubtitle').value = d.completeSubtitle;
         if (d.deliveryTime) document.getElementById('serviceDeliveryTime').value = d.deliveryTime;
         if (d.revisionCount) document.getElementById('serviceRevisionCount').value = d.revisionCount;
-        if (d.launchOffer) document.getElementById('serviceLaunchOffer').value = d.launchOffer;
+        if (d.ideathonName) document.getElementById('achieveIdeathonName').value = d.ideathonName;
+        if (d.ideathonInstitution) document.getElementById('achieveIdeathonUni').value = d.ideathonInstitution;
 
         if (d.demoStoreUrl) document.getElementById('projDemoStoreUrl').value = d.demoStoreUrl;
         if (d.demoStoreGithub) document.getElementById('projDemoStoreGithub').value = d.demoStoreGithub;
@@ -773,10 +756,8 @@
     // Save Data
     function saveData() {
       const d = {
-        heroGreeting: document.getElementById('heroGreeting').value,
         heroName: document.getElementById('heroName').value,
         heroDescription: document.getElementById('heroDescription').value,
-        typingPhrases: document.getElementById('typingPhrases').value,
         statProjects: document.getElementById('statProjects').value,
         statInternship: document.getElementById('statInternship').value,
         statTech: document.getElementById('statTech').value,
@@ -787,13 +768,12 @@
         aboutPara2: document.getElementById('aboutPara2').value,
         aboutPara3: document.getElementById('aboutPara3').value,
 
-        basicPrice: document.getElementById('serviceBasicPrice').value,
         basicSubtitle: document.getElementById('serviceBasicSubtitle').value,
-        completePrice: document.getElementById('serviceCompletePrice').value,
         completeSubtitle: document.getElementById('serviceCompleteSubtitle').value,
         deliveryTime: document.getElementById('serviceDeliveryTime').value,
         revisionCount: document.getElementById('serviceRevisionCount').value,
-        launchOffer: document.getElementById('serviceLaunchOffer').value,
+        ideathonName: document.getElementById('achieveIdeathonName').value,
+        ideathonInstitution: document.getElementById('achieveIdeathonUni').value,
 
         demoStoreUrl: document.getElementById('projDemoStoreUrl').value,
         demoStoreGithub: document.getElementById('projDemoStoreGithub').value,
@@ -819,7 +799,8 @@
       };
 
       localStorage.setItem(STORAGE_KEY, JSON.stringify(d));
-      showToast('Changes saved! Open your live site to see your updates.');
+      showToast('Preview saved in this browser. Export HTML to publish your changes.');
+      return d;
     }
 
     document.getElementById('saveChangesBtn').addEventListener('click', saveData);
@@ -834,25 +815,18 @@
 
     // Export Updated HTML
     document.getElementById('exportHtmlBtn').addEventListener('click', function () {
-      saveData();
-      fetch('index.html')
-        .then(res => res.text())
+      const data = saveData();
+      fetch('/index.html')
+        .then(res => {
+          if (!res.ok) throw new Error('Unable to load portfolio HTML');
+          return res.text();
+        })
         .then(html => {
-          let updated = html;
-          const basicPrice = document.getElementById('serviceBasicPrice').value;
-          const completePrice = document.getElementById('serviceCompletePrice').value;
-          const heroDesc = document.getElementById('heroDescription').value;
-          const waNum = document.getElementById('contactWhatsApp').value.replace(/[^0-9]/g, '');
-
-          if (basicPrice) {
-            updated = updated.replace(/service-basic-price">[^<]*</g, `service-basic-price">${basicPrice}<`);
-          }
-          if (completePrice) {
-            updated = updated.replace(/service-complete-price">[^<]*</g, `service-complete-price">${completePrice}<`);
-          }
+          const updated = new DOMParser().parseFromString(html, 'text/html');
+          PortfolioEdits.apply(updated, data);
 
           // Trigger download
-          const blob = new Blob([updated], { type: 'text/html;charset=utf-8' });
+          const blob = new Blob(['<!doctype html>\n', updated.documentElement.outerHTML], { type: 'text/html;charset=utf-8' });
           const url = URL.createObjectURL(blob);
           const a = document.createElement('a');
           a.href = url;
