@@ -1,11 +1,9 @@
-# Harsh Pandya - Portfolio & E-Commerce Web Developer
+# Harsh Pandya — Developer Portfolio
 
-Personal portfolio website of **Harsh Pandya**, a Freelance Web Developer in Ahmedabad specializing in custom e-commerce and business websites for small businesses.
+Personal portfolio of **Harsh Pandya**, a full-stack developer in Ahmedabad building custom stores, web applications, and generative AI experiences.
 
 ## Features
-- **Modern Responsive Design**: Built with HTML5, CSS3, JavaScript, Bootstrap 5, FontAwesome, and AOS.
-- **Freelance Services & Pricing**: Dedicated packages for Basic E-Commerce and Complete E-Commerce solutions.
-- **Client Project Showcase**: Interactive project filter (Web App, AI/ML, Client Work, E-Commerce).
-- **Netlify Forms Integration**: Built-in serverless form handling for instant contact requests.
-- **Direct WhatsApp Chat**: One-click communication with pre-filled inquiries.
-- **Admin Editor**: Visit `/admin-edit` to easily manage and customize portfolio content.
+- The public site uses static HTML, CSS, and JavaScript. Project filters and expandable case studies highlight the work without requiring a framework.
+- Basic and Complete e-commerce packages have fixed prices of ₹25,000 and ₹35,000. Enquiry links open WhatsApp with a message for the selected package.
+- Netlify Forms handles contact submissions. The form also supports native submissions to the confirmation page when JavaScript is disabled.
+- `/admin-edit` previews copy and link edits in the current browser. To publish those edits, export the updated `index.html`, replace the source file, and deploy. Prices cannot be changed through the editor.
